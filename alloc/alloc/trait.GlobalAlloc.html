@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="A memory allocator that can be registered as the standard library’s default through the `#[global_allocator]` attribute."><meta name="keywords" content="rust, rustlang, rust-lang, GlobalAlloc"><title>GlobalAlloc in alloc::alloc - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize1.56.1.css"><link rel="stylesheet" type="text/css" href="../../rustdoc1.56.1.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light1.56.1.css" id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark1.56.1.css" disabled=""><link rel="stylesheet" type="text/css" href="../../ayu1.56.1.css" disabled=""><script id="default-settings"></script><script src="../../storage1.56.1.js"></script><script src="../../crates1.56.1.js"></script><noscript><link rel="stylesheet" href="../../noscript1.56.1.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x161.56.1.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x321.56.1.png"><link rel="icon" type="image/svg+xml" href="../../favicon1.56.1.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow1.56.1.svg");}</style></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../alloc/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo1.56.1.png' alt='logo'></div></a><h2 class="location">Trait GlobalAlloc</h2><div class="sidebar-elems"><div class="block items"><h3 class="sidebar-title"><a href="#required-methods">Required Methods</a></h3><div class="sidebar-links"><a href="#tymethod.alloc">alloc</a><a href="#tymethod.dealloc">dealloc</a></div><h3 class="sidebar-title"><a href="#provided-methods">Provided Methods</a></h3><div class="sidebar-links"><a href="#method.alloc_zeroed">alloc_zeroed</a><a href="#method.realloc">realloc</a></div><h3 class="sidebar-title"><a href="#implementors">Implementors</a></h3></div><h2 class="location">Other items in<br><a href="../index.html">alloc</a>::<wbr><a href="index.html">alloc</a></h2><div id="sidebar-vars" data-name="GlobalAlloc" data-ty="trait" data-relpath=""></div><script defer="" src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush1.56.1.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled="" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel1.56.1.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Trait <a href="../index.html">alloc</a>::<wbr><a href="index.html">alloc</a>::<wbr><a class="trait" href="#">GlobalAlloc</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../clipboard1.56.1.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span class="since" title="Stable since Rust version 1.28.0">1.28.0</span><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/core/alloc/global.rs.html#123-277" title="goto source code">[src]</a></span></h1><div class="docblock type-decl"><pre class="rust trait"><code>pub unsafe trait GlobalAlloc {
+    unsafe fn <a href="#tymethod.alloc" class="fnname">alloc</a>(&amp;self, layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>) -&gt; *mut u8;
+<div class="item-spacer"></div>    unsafe fn <a href="#tymethod.dealloc" class="fnname">dealloc</a>(&amp;self, ptr: *mut u8, layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>);
+
+    unsafe fn <a href="#method.alloc_zeroed" class="fnname">alloc_zeroed</a>(&amp;self, layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>) -&gt; *mut u8 { ... }
+<div class="item-spacer"></div>    unsafe fn <a href="#method.realloc" class="fnname">realloc</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ptr: *mut u8, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new_size: usize<br>&nbsp;&nbsp;&nbsp;&nbsp;) -&gt; *mut u8 { ... }
+}</code></pre></div><details class="rustdoc-toggle top-doc" open=""><summary class="hideme"><span>Expand description</span></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/details[1]/div[1]" istranslationnode="true" main_mp="Y25yZD4/ZWlsbmM7PmJoanJwfCsuUnh6cnB8UHh5e3Y=" sub_mp="[&quot;YW1sbmc/PmRsbW9iPj9DaX9zcX1VeXh6cw==&quot;]"><p class="translate-text">一个内存分配器，可以通过 #[global_allocator] 属性注册为标准库的默认值。</p><p>A memory allocator that can be registered as the standard library’s default
+through the <code>#[global_allocator]</code> attribute.</p>
+<p class="translate-text">一些方法要求当前通过分配器分配内存块。 这意味着：</p><p>Some of the methods require that a memory block be <em>currently
+allocated</em> via an allocator. This means that:</p>
+<ul>
+<li class="translate-text">该内存块的起始地址先前由先前调用分配方法（例如 alloc）返回，并且</li><li>
+<p>the starting address for that memory block was previously
+returned by a previous call to an allocation method
+such as <code>alloc</code>, and</p>
+</li>
+<li class="translate-text">内存块随后没有被释放，其中块通过传递给诸如dealloc之类的释放方法或通过传递给返回非空指针的重新分配方法来释放。</li><li>
+<p>the memory block has not been subsequently deallocated, where
+blocks are deallocated either by being passed to a deallocation
+method such as <code>dealloc</code> or by being
+passed to a reallocation method that returns a non-null pointer.</p>
+</li>
+</ul>
+<h1 id="example" class="section-header"><a href="#example">Example</a></h1>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::alloc</span>::{<span class="ident">GlobalAlloc</span>, <span class="ident">Layout</span>};
+<span class="kw">use</span> <span class="ident">std::cell::UnsafeCell</span>;
+<span class="kw">use</span> <span class="ident">std::ptr::null_mut</span>;
+<span class="kw">use</span> <span class="ident">std::sync::atomic</span>::{
+    <span class="ident">AtomicUsize</span>,
+    <span class="ident">Ordering</span>::{<span class="ident">Acquire</span>, <span class="ident">SeqCst</span>},
+};
+
+<span class="kw">const</span> <span class="ident">ARENA_SIZE</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">128</span> <span class="op">*</span> <span class="number">1024</span>;
+<span class="kw">const</span> <span class="ident">MAX_SUPPORTED_ALIGN</span>: <span class="ident">usize</span> <span class="op">=</span> <span class="number">4096</span>;
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>, <span class="ident">align</span>(<span class="number">4096</span>))]</span> <span class="comment">// 4096 == MAX_SUPPORTED_ALIGN</span>
+<span class="kw">struct</span> <span class="ident">SimpleAllocator</span> {
+    <span class="ident">arena</span>: <span class="ident">UnsafeCell</span><span class="op">&lt;</span>[<span class="ident">u8</span>; <span class="ident">ARENA_SIZE</span>]<span class="op">&gt;</span>,
+    <span class="ident">remaining</span>: <span class="ident">AtomicUsize</span>, <span class="comment">// we allocate from the top, counting down</span>
+}
+
+<span class="attribute">#[<span class="ident">global_allocator</span>]</span>
+<span class="kw">static</span> <span class="ident">ALLOCATOR</span>: <span class="ident">SimpleAllocator</span> <span class="op">=</span> <span class="ident">SimpleAllocator</span> {
+    <span class="ident">arena</span>: <span class="ident">UnsafeCell::new</span>([<span class="number">0x55</span>; <span class="ident">ARENA_SIZE</span>]),
+    <span class="ident">remaining</span>: <span class="ident">AtomicUsize::new</span>(<span class="ident">ARENA_SIZE</span>),
+};
+
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">Sync</span> <span class="kw">for</span> <span class="ident">SimpleAllocator</span> {}
+
+<span class="kw">unsafe</span> <span class="kw">impl</span> <span class="ident">GlobalAlloc</span> <span class="kw">for</span> <span class="ident">SimpleAllocator</span> {
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">alloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">Layout</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span> {
+        <span class="kw">let</span> <span class="ident">size</span> <span class="op">=</span> <span class="ident">layout</span>.<span class="ident">size</span>();
+        <span class="kw">let</span> <span class="ident">align</span> <span class="op">=</span> <span class="ident">layout</span>.<span class="ident">align</span>();
+
+        <span class="comment">// `Layout` contract forbids making a `Layout` with align=0, or align not power of 2.</span>
+        <span class="comment">// So we can safely use a mask to ensure alignment without worrying about UB.</span>
+        <span class="kw">let</span> <span class="ident">align_mask_to_round_down</span> <span class="op">=</span> <span class="op">!</span>(<span class="ident">align</span> <span class="op">-</span> <span class="number">1</span>);
+
+        <span class="kw">if</span> <span class="ident">align</span> <span class="op">&gt;</span> <span class="ident">MAX_SUPPORTED_ALIGN</span> {
+            <span class="kw">return</span> <span class="ident">null_mut</span>();
+        }
+
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">allocated</span> <span class="op">=</span> <span class="number">0</span>;
+        <span class="kw">if</span> <span class="self">self</span>
+            .<span class="ident">remaining</span>
+            .<span class="ident">fetch_update</span>(<span class="ident">SeqCst</span>, <span class="ident">SeqCst</span>, <span class="op">|</span><span class="kw-2">mut</span> <span class="ident">remaining</span><span class="op">|</span> {
+                <span class="kw">if</span> <span class="ident">size</span> <span class="op">&gt;</span> <span class="ident">remaining</span> {
+                    <span class="kw">return</span> <span class="prelude-val">None</span>;
+                }
+                <span class="ident">remaining</span> <span class="op">-</span><span class="op">=</span> <span class="ident">size</span>;
+                <span class="ident">remaining</span> <span class="op">&amp;=</span> <span class="ident">align_mask_to_round_down</span>;
+                <span class="ident">allocated</span> <span class="op">=</span> <span class="ident">remaining</span>;
+                <span class="prelude-val">Some</span>(<span class="ident">remaining</span>)
+            })
+            .<span class="ident">is_err</span>()
+        {
+            <span class="kw">return</span> <span class="ident">null_mut</span>();
+        };
+        (<span class="self">self</span>.<span class="ident">arena</span>.<span class="ident">get</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>).<span class="ident">add</span>(<span class="ident">allocated</span>)
+    }
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">dealloc</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">_ptr</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">u8</span>, <span class="ident">_layout</span>: <span class="ident">Layout</span>) {}
+}
+
+<span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="kw">let</span> <span class="ident">_s</span> <span class="op">=</span> <span class="macro">format!</span>(<span class="string">&quot;allocating a string!&quot;</span>);
+    <span class="kw">let</span> <span class="ident">currently</span> <span class="op">=</span> <span class="ident">ALLOCATOR</span>.<span class="ident">remaining</span>.<span class="ident">load</span>(<span class="ident">Acquire</span>);
+    <span class="macro">println!</span>(<span class="string">&quot;allocated so far: {}&quot;</span>, <span class="ident">ARENA_SIZE</span> <span class="op">-</span> <span class="ident">currently</span>);
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Aextern%20crate%20r%23alloc%3B%0Ause%20std%3A%3Aalloc%3A%3A%7BGlobalAlloc%2C%20Layout%7D%3B%0Ause%20std%3A%3Acell%3A%3AUnsafeCell%3B%0Ause%20std%3A%3Aptr%3A%3Anull_mut%3B%0Ause%20std%3A%3Async%3A%3Aatomic%3A%3A%7B%0A%20%20%20%20AtomicUsize%2C%0A%20%20%20%20Ordering%3A%3A%7BAcquire%2C%20SeqCst%7D%2C%0A%7D%3B%0A%0Aconst%20ARENA_SIZE%3A%20usize%20%3D%20128%20*%201024%3B%0Aconst%20MAX_SUPPORTED_ALIGN%3A%20usize%20%3D%204096%3B%0A%23%5Brepr(C%2C%20align(4096))%5D%20%2F%2F%204096%20%3D%3D%20MAX_SUPPORTED_ALIGN%0Astruct%20SimpleAllocator%20%7B%0A%20%20%20%20arena%3A%20UnsafeCell%3C%5Bu8%3B%20ARENA_SIZE%5D%3E%2C%0A%20%20%20%20remaining%3A%20AtomicUsize%2C%20%2F%2F%20we%20allocate%20from%20the%20top%2C%20counting%20down%0A%7D%0A%0A%23%5Bglobal_allocator%5D%0Astatic%20ALLOCATOR%3A%20SimpleAllocator%20%3D%20SimpleAllocator%20%7B%0A%20%20%20%20arena%3A%20UnsafeCell%3A%3Anew(%5B0x55%3B%20ARENA_SIZE%5D)%2C%0A%20%20%20%20remaining%3A%20AtomicUsize%3A%3Anew(ARENA_SIZE)%2C%0A%7D%3B%0A%0Aunsafe%20impl%20Sync%20for%20SimpleAllocator%20%7B%7D%0A%0Aunsafe%20impl%20GlobalAlloc%20for%20SimpleAllocator%20%7B%0A%20%20%20%20unsafe%20fn%20alloc(%26self%2C%20layout%3A%20Layout)%20-%3E%20*mut%20u8%20%7B%0A%20%20%20%20%20%20%20%20let%20size%20%3D%20layout.size()%3B%0A%20%20%20%20%20%20%20%20let%20align%20%3D%20layout.align()%3B%0A%0A%20%20%20%20%20%20%20%20%2F%2F%20%60Layout%60%20contract%20forbids%20making%20a%20%60Layout%60%20with%20align%3D0%2C%20or%20align%20not%20power%20of%202.%0A%20%20%20%20%20%20%20%20%2F%2F%20So%20we%20can%20safely%20use%20a%20mask%20to%20ensure%20alignment%20without%20worrying%20about%20UB.%0A%20%20%20%20%20%20%20%20let%20align_mask_to_round_down%20%3D%20!(align%20-%201)%3B%0A%0A%20%20%20%20%20%20%20%20if%20align%20%3E%20MAX_SUPPORTED_ALIGN%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20null_mut()%3B%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20let%20mut%20allocated%20%3D%200%3B%0A%20%20%20%20%20%20%20%20if%20self%0A%20%20%20%20%20%20%20%20%20%20%20%20.remaining%0A%20%20%20%20%20%20%20%20%20%20%20%20.fetch_update(SeqCst%2C%20SeqCst%2C%20%7Cmut%20remaining%7C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20size%20%3E%20remaining%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20None%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20remaining%20-%3D%20size%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20remaining%20%26%3D%20align_mask_to_round_down%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20allocated%20%3D%20remaining%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Some(remaining)%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D)%0A%20%20%20%20%20%20%20%20%20%20%20%20.is_err()%0A%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20null_mut()%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20(self.arena.get()%20as%20*mut%20u8).add(allocated)%0A%20%20%20%20%7D%0A%20%20%20%20unsafe%20fn%20dealloc(%26self%2C%20_ptr%3A%20*mut%20u8%2C%20_layout%3A%20Layout)%20%7B%7D%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20_s%20%3D%20format!(%22allocating%20a%20string!%22)%3B%0A%20%20%20%20let%20currently%20%3D%20ALLOCATOR.remaining.load(Acquire)%3B%0A%20%20%20%20println!(%22allocated%20so%20far%3A%20%7B%7D%22%2C%20ARENA_SIZE%20-%20currently)%3B%0A%7D&amp;edition=2018">Run</a></div>
+<h1 id="safety" class="section-header"><a href="#safety">Safety</a></h1>
+<p class="translate-text">GlobalAlloc Trait是一个不安全的Trait，原因有很多，实现者必须确保他们遵守这些契约：</p><p>The <code>GlobalAlloc</code> trait is an <code>unsafe</code> trait for a number of reasons, and
+implementors must ensure that they adhere to these contracts:</p>
+<ul>
+<li class="translate-text">如果全局分配器展开，这是未定义的行为。 将来可能会取消此限制，但目前任何这些功能的panic都可能导致内存不安全。</li><li>
+<p>It’s undefined behavior if global allocators unwind. This restriction may
+be lifted in the future, but currently a panic from any of these
+functions may lead to memory unsafety.</p>
+</li>
+<li class="translate-text">布局查询和计算通常必须正确。 允许此Trait的调用者依赖在每个方法上定义的协定，实施者必须确保此类协定保持真实。</li><li>
+<p><code>Layout</code> queries and calculations in general must be correct. Callers of
+this trait are allowed to rely on the contracts defined on each method,
+and implementors must ensure such contracts remain true.</p>
+</li>
+<li class="translate-text">即使源中有明确的堆分配，您也不能依赖实际发生的分配。优化器可能会检测到未使用的分配，它可以完全消除或移动到堆栈中，因此永远不会调用分配器。优化器可能会进一步假设分配是无误的，因此过去由于分配器故障而失败的代码现在可能会突然工作，因为优化器解决了分配的需要。更具体地说，无论您的自定义分配器是否允许计算发生了多少分配，以下代码示例都是不合理的。 ⓘdrop(Box::new(42)); let number_of_heap_allocs = /* 调用私有分配器 API */;不安全 { std::intrinsics::assume(number_of_heap_allocs > 0); }Run 请注意，上面提到的优化并不是唯一可以应用的优化。如果可以在不改变程序行为的情况下删除它们，您通常可能不会依赖发生的堆分配。分配是否发生不是程序行为的一部分，即使它可以通过通过打印或其他方式跟踪分配的分配器检测到。</li><li>
+<p>You must not rely on allocations actually happening, even if there are explicit
+heap allocations in the source. The optimizer may detect unused allocations that it can either
+eliminate entirely or move to the stack and thus never invoke the allocator. The
+optimizer may further assume that allocation is infallible, so code that used to fail due
+to allocator failures may now suddenly work because the optimizer worked around the
+need for an allocation. More concretely, the following code example is unsound, irrespective
+of whether your custom allocator allows counting how many allocations have happened.</p>
+
+<div class='information'><div class='tooltip ignore'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered ignore"><code><span class="ident">drop</span>(<span class="ident">Box::new</span>(<span class="number">42</span>));
+<span class="kw">let</span> <span class="ident">number_of_heap_allocs</span> <span class="op">=</span> <span class="comment">/* call private allocator API */</span>;
+<span class="kw">unsafe</span> { <span class="ident">std::intrinsics::assume</span>(<span class="ident">number_of_heap_allocs</span> <span class="op">&gt;</span> <span class="number">0</span>); }</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Aextern%20crate%20r%23alloc%3B%0Afn%20main()%20%7B%0Adrop(Box%3A%3Anew(42))%3B%0Alet%20number_of_heap_allocs%20%3D%20%2F*%20call%20private%20allocator%20API%20*%2F%3B%0Aunsafe%20%7B%20std%3A%3Aintrinsics%3A%3Aassume(number_of_heap_allocs%20%3E%200)%3B%20%7D%0A%7D&amp;edition=2018">Run</a></div>
+<p>Note that the optimizations mentioned above are not the only
+optimization that can be applied. You may generally not rely on heap allocations
+happening if they can be removed without changing program behavior.
+Whether allocations happen or not is not part of the program behavior, even if it
+could be detected via an allocator that tracks allocations by printing or otherwise
+having side effects.</p>
+</li>
+</ul>
+</div></details><h2 id="required-methods" class="small-section-header">Required methods<a href="#required-methods" class="anchor"></a></h2><div class="methods"><details class="rustdoc-toggle" open=""><summary><div id="tymethod.alloc" class="method has-srclink"><div class="rightside"><a class="srclink" href="../../src/core/alloc/global.rs.html#157" title="goto source code">[src]</a></div><h4 class="code-header">unsafe fn <a href="#tymethod.alloc" class="fnname">alloc</a>(&amp;self, layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>) -&gt; *mut u8</h4></div></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/div[2]/details[1]/div[1]" istranslationnode="true" main_mp="Y25yZD4/ZWlsbmM7PmJoanJwfCsuUnh6cnB8UHh5e3YaG0FNSEpH" sub_mp="[&quot;YW1sbmc/PmRsbW9iPj9DaX9zcX1VeXh6cysqcHh5e3Y=&quot;]"><p class="translate-text">按照给定布局的描述分配内存。</p><p>Allocate memory as described by the given <code>layout</code>.</p>
+<p class="translate-text">返回指向新分配的内存的指针，或 null 表示分配失败。</p><p>Returns a pointer to newly-allocated memory,
+or null to indicate allocation failure.</p>
+<h1 id="safety-1" class="section-header"><a href="#safety-1">Safety</a></h1>
+<p class="translate-text">此函数是不安全的，因为如果调用者不确保布局具有非零大小，则可能导致未定义的行为。</p><p>This function is unsafe because undefined behavior can result
+if the caller does not ensure that <code>layout</code> has non-zero size.</p>
+<p class="translate-text">（扩展子Trait可能会为行为提供更具体的界限，例如，保证一个哨兵地址或一个空指针以响应零大小的分配请求。）</p><p>(Extension subtraits might provide more specific bounds on
+behavior, e.g., guarantee a sentinel address or a null pointer
+in response to a zero-size allocation request.)</p>
+<p class="translate-text">分配的内存块可能会或可能不会被初始化。</p><p>The allocated block of memory may or may not be initialized.</p>
+<h1 id="errors" class="section-header"><a href="#errors">Errors</a></h1>
+<p class="translate-text">返回空指针表示内存已耗尽或布局不满足此分配器的大小或对齐约束。</p><p>Returning a null pointer indicates that either memory is exhausted
+or <code>layout</code> does not meet this allocator’s size or alignment constraints.</p>
+<p class="translate-text">鼓励实现在内存耗尽时返回 null 而不是中止，但这不是严格的要求。 （特别是：在内存耗尽时中止的底层本机分配库之上实现此Trait是合法的。）</p><p>Implementations are encouraged to return null on memory
+exhaustion rather than aborting, but this is not
+a strict requirement. (Specifically: it is <em>legal</em> to
+implement this trait atop an underlying native allocation
+library that aborts on memory exhaustion.)</p>
+<p class="translate-text">鼓励希望中止计算以响应分配错误的客户端调用 handle_alloc_error 函数，而不是直接调用panic！ 或类似的。</p><p>Clients wishing to abort computation in response to an
+allocation error are encouraged to call the <a href="../../alloc/alloc/fn.handle_alloc_error.html"><code>handle_alloc_error</code></a> function,
+rather than directly invoking <code>panic!</code> or similar.</p>
+</div></details><details class="rustdoc-toggle" open=""><summary><div id="tymethod.dealloc" class="method has-srclink"><div class="rightside"><a class="srclink" href="../../src/core/alloc/global.rs.html#172" title="goto source code">[src]</a></div><h4 class="code-header">unsafe fn <a href="#tymethod.dealloc" class="fnname">dealloc</a>(&amp;self, ptr: *mut u8, layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>)</h4></div></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/div[2]/details[2]/div[1]" istranslationnode="true" main_mp="Y25yZD4/ZWlsbmM7PmJoanJwfCsuUnh6cnB8UHh5e3YaG0RERUlISkM=" sub_mp="[&quot;YW1sbmc/PmRsbW9iPj9DaX9zcX1VeXh6cysqdXF0eHlPQg==&quot;]"><p class="translate-text">使用给定布局在给定 ptr 指针处释放内存块。</p><p>Deallocate the block of memory at the given <code>ptr</code> pointer with the given <code>layout</code>.</p>
+<h1 id="safety-2" class="section-header"><a href="#safety-2">Safety</a></h1>
+<p class="translate-text">此函数是不安全的，因为如果调用者不确保以下所有内容，可能会导致未定义的行为：</p><p>This function is unsafe because undefined behavior can result
+if the caller does not ensure all of the following:</p>
+<ul>
+<li class="translate-text">ptr 必须表示当前通过此分配器分配的内存块，</li><li>
+<p><code>ptr</code> must denote a block of memory currently allocated via
+this allocator,</p>
+</li>
+<li class="translate-text">布局必须与用于分配该内存块的布局相同。</li><li>
+<p><code>layout</code> must be the same layout that was used
+to allocate that block of memory.</p>
+</li>
+</ul>
+</div></details></div><h2 id="provided-methods" class="small-section-header">Provided methods<a href="#provided-methods" class="anchor"></a></h2><div class="methods"><details class="rustdoc-toggle" open=""><summary><div id="method.alloc_zeroed" class="method has-srclink"><div class="rightside"><a class="srclink" href="../../src/core/alloc/global.rs.html#194" title="goto source code">[src]</a></div><h4 class="code-header">unsafe fn <a href="#method.alloc_zeroed" class="fnname">alloc_zeroed</a>(&amp;self, layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>) -&gt; *mut u8</h4></div></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/div[3]/details[1]/div[1]" istranslationnode="true" main_mp="Y25yZD4/ZWlsbmM7PmJoanJwfCsuUnh6cnB8UHh5e3YaG0FNSEpHelpEUk5BQQ==" sub_mp="[&quot;YW1sbmc/PmRsbW9iPj9DaX9zcX1VeXh6cysqcHh5e3Z/W0VTS0BA&quot;]"><p class="translate-text">行为类似于 alloc，但也确保在返回之前将内容设置为零。</p><p>Behaves like <code>alloc</code>, but also ensures that the contents
+are set to zero before being returned.</p>
+<h1 id="safety-3" class="section-header"><a href="#safety-3">Safety</a></h1>
+<p class="translate-text">由于与 alloc 相同的原因，此函数是不安全的。 然而，分配的内存块保证被初始化。</p><p>This function is unsafe for the same reasons that <code>alloc</code> is.
+However the allocated block of memory is guaranteed to be initialized.</p>
+<h1 id="errors-1" class="section-header"><a href="#errors-1">Errors</a></h1>
+<p class="translate-text">返回空指针表示内存已耗尽或布局不满足分配器的大小或对齐约束，就像在 alloc 中一样。</p><p>Returning a null pointer indicates that either memory is exhausted
+or <code>layout</code> does not meet allocator’s size or alignment constraints,
+just as in <code>alloc</code>.</p>
+<p class="translate-text">鼓励希望中止计算以响应分配错误的客户端调用 handle_alloc_error 函数，而不是直接调用panic！ 或类似的。</p><p>Clients wishing to abort computation in response to an
+allocation error are encouraged to call the <a href="../../alloc/alloc/fn.handle_alloc_error.html"><code>handle_alloc_error</code></a> function,
+rather than directly invoking <code>panic!</code> or similar.</p>
+</div></details><details class="rustdoc-toggle" open=""><summary><div id="method.realloc" class="method has-srclink"><div class="rightside"><a class="srclink" href="../../src/core/alloc/global.rs.html#261" title="goto source code">[src]</a></div><h4 class="code-header">unsafe fn <a href="#method.realloc" class="fnname">realloc</a>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&amp;self, <br>&nbsp;&nbsp;&nbsp;&nbsp;ptr: *mut u8, <br>&nbsp;&nbsp;&nbsp;&nbsp;layout: <a class="struct" href="struct.Layout.html" title="struct alloc::alloc::Layout">Layout</a>, <br>&nbsp;&nbsp;&nbsp;&nbsp;new_size: usize<br>) -&gt; *mut u8</h4></div></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/div[3]/details[2]/div[1]" istranslationnode="true" main_mp="Y25yZD4/ZWlsbmM7PmJoanJwfCsuUnh6cnB8UHh5e3YaG1JERUlISkM=" sub_mp="[&quot;YW1sbmc/PmRsbW9iPj9DaX9zcX1VeXh6cysqY3F0eHlPQg==&quot;]"><p class="translate-text">将一块内存缩小或增长到给定的 new_size。 该块由给定的 ptr 指针和布局描述。</p><p>Shrink or grow a block of memory to the given <code>new_size</code>.
+The block is described by the given <code>ptr</code> pointer and <code>layout</code>.</p>
+<p class="translate-text">如果这返回一个非空指针，则 ptr 引用的内存块的所有权已转移到此分配器。 内存可能已经被释放，也可能没有被释放，并且应该被认为是不可用的（当然，除非它通过这个方法的返回值再次被转移回调用者）。 新的内存块分配有布局，但大小更新为 new_size。 使用 dealloc 释放新内存块时，应使用此新布局。 保证新内存块的范围 0..min(layout.size(), new_size) 与原始块具有相同的值。</p><p>If this returns a non-null pointer, then ownership of the memory block
+referenced by <code>ptr</code> has been transferred to this allocator.
+The memory may or may not have been deallocated,
+and should be considered unusable (unless of course it was
+transferred back to the caller again via the return value of
+this method). The new memory block is allocated with <code>layout</code>, but
+with the <code>size</code> updated to <code>new_size</code>. This new layout should be
+used when deallocating the new memory block with <code>dealloc</code>. The range
+<code>0..min(layout.size(), new_size)</code> of the new memory block is
+guaranteed to have the same values as the original block.</p>
+<p class="translate-text">如果此方法返回 null，则内存块的所有权尚未转移到此分配器，并且内存块的内容未更改。</p><p>If this method returns null, then ownership of the memory
+block has not been transferred to this allocator, and the
+contents of the memory block are unaltered.</p>
+<h1 id="safety-4" class="section-header"><a href="#safety-4">Safety</a></h1>
+<p class="translate-text">此函数是不安全的，因为如果调用者不确保以下所有内容，可能会导致未定义的行为：</p><p>This function is unsafe because undefined behavior can result
+if the caller does not ensure all of the following:</p>
+<ul>
+<li class="translate-text">ptr 当前必须通过此分配器分配，</li><li>
+<p><code>ptr</code> must be currently allocated via this allocator,</p>
+</li>
+<li class="translate-text">布局必须与用于分配该内存块的布局相同，</li><li>
+<p><code>layout</code> must be the same layout that was used
+to allocate that block of memory,</p>
+</li>
+<li class="translate-text">new_size 必须大于零。</li><li>
+<p><code>new_size</code> must be greater than zero.</p>
+</li>
+<li class="translate-text">new_size，当四舍五入到最接近的 layout.align() 倍数时，不得溢出（即，四舍五入的值必须小于 usize::MAX）。</li><li>
+<p><code>new_size</code>, when rounded up to the nearest multiple of <code>layout.align()</code>,
+must not overflow (i.e., the rounded value must be less than <code>usize::MAX</code>).</p>
+</li>
+</ul>
+<p class="translate-text">（扩展子Trait可能会为行为提供更具体的界限，例如，保证一个哨兵地址或一个空指针以响应零大小的分配请求。）</p><p>(Extension subtraits might provide more specific bounds on
+behavior, e.g., guarantee a sentinel address or a null pointer
+in response to a zero-size allocation request.)</p>
+<h1 id="errors-2" class="section-header"><a href="#errors-2">Errors</a></h1>
+<p class="translate-text">如果新布局不满足分配器的大小和对齐约束，或者重新分配失败，则返回 null。</p><p>Returns null if the new layout does not meet the size
+and alignment constraints of the allocator, or if reallocation
+otherwise fails.</p>
+<p class="translate-text">鼓励实现在内存耗尽时返回 null 而不是panic或中止，但这不是严格的要求。 （特别是：在内存耗尽时中止的底层本机分配库之上实现此Trait是合法的。）</p><p>Implementations are encouraged to return null on memory
+exhaustion rather than panicking or aborting, but this is not
+a strict requirement. (Specifically: it is <em>legal</em> to
+implement this trait atop an underlying native allocation
+library that aborts on memory exhaustion.)</p>
+<p class="translate-text">鼓励希望中止计算以响应重新分配错误的客户端调用 handle_alloc_error 函数，而不是直接调用panic！ 或类似的。</p><p>Clients wishing to abort computation in response to a
+reallocation error are encouraged to call the <a href="../../alloc/alloc/fn.handle_alloc_error.html"><code>handle_alloc_error</code></a> function,
+rather than directly invoking <code>panic!</code> or similar.</p>
+</div></details></div><h2 id="implementors" class="small-section-header">Implementors<a href="#implementors" class="anchor"></a></h2><div class="item-list" id="implementors-list"></div><script type="text/javascript" src="../../implementors/core/alloc/global/trait.GlobalAlloc.js" async=""></script></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="alloc" data-search-index-js="../../search-index1.56.1.js" data-search-js="../../search1.56.1.js"></div>
+    <script src="../../main1.56.1.js"></script>
+</body></html>

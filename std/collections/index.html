@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Collection types."><meta name="keywords" content="rust, rustlang, rust-lang, collections"><title>std::collections - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize1.56.1.css"><link rel="stylesheet" type="text/css" href="../../rustdoc1.56.1.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light1.56.1.css" id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark1.56.1.css" disabled=""><link rel="stylesheet" type="text/css" href="../../ayu1.56.1.css" disabled=""><script id="default-settings"></script><script src="../../storage1.56.1.js"></script><script src="../../crates1.56.1.js"></script><noscript><link rel="stylesheet" href="../../noscript1.56.1.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x161.56.1.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x321.56.1.png"><link rel="icon" type="image/svg+xml" href="../../favicon1.56.1.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow1.56.1.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../std/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo1.56.1.png' alt='logo'></div></a><h2 class="location">Module collections</h2><div class="sidebar-elems"><div class="block items"><ul><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li></ul></div><div id="sidebar-vars" data-name="collections" data-ty="mod" data-relpath="./"></div><script defer="" src="./sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush1.56.1.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled="" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel1.56.1.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Module <a href="../index.html">std</a>::<wbr><a class="mod" href="#">collections</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../clipboard1.56.1.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span class="since" title="Stable since Rust version 1.0.0">1.0.0</span><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/std/collections/mod.rs.html#1-446" title="goto source code">[src]</a></span></h1><details class="rustdoc-toggle top-doc" open=""><summary class="hideme"><span>Expand description</span></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/details[1]/div[1]" istranslationnode="true" main_mp="c3VkOz5ma2lsZGN1bWpqdiorfX5w"><p class="translate-text">集合类型。</p><p>Collection types.</p>
+<p class="translate-text">Rust 的标准集合库提供了最常见的通用编程数据结构的有效实现。 通过使用标准实现，两个库应该可以在没有大量数据转换的情况下进行通信。</p><p>Rust’s standard collection library provides efficient implementations of the
+most common general purpose programming data structures. By using the
+standard implementations, it should be possible for two libraries to
+communicate without significant data conversion.</p>
+<p class="translate-text">为了解决这个问题：您可能应该只使用 Vec 或 HashMap。 这两个集合涵盖了通用数据存储和处理的大多数用例。 他们非常擅长做他们所做的事情。 标准库中的所有其他集合都有特定的用例，它们是最佳选择，但相比之下，这些用例是边缘利基。 即使 Vec 和 HashMap 在技术上不是最理想的，它们也可能是一个足够好的入门选择。</p><p>To get this out of the way: you should probably just use <a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a> or <a href="hash_map/struct.HashMap.html" title="HashMap"><code>HashMap</code></a>.
+These two collections cover most use cases for generic data storage and
+processing. They are exceptionally good at doing what they do. All the other
+collections in the standard library have specific use cases where they are
+the optimal choice, but these cases are borderline <em>niche</em> in comparison.
+Even when <code>Vec</code> and <code>HashMap</code> are technically suboptimal, they’re probably a
+good enough choice to get started.</p>
+<p class="translate-text">Rust 的集合可以分为四大类：</p><p>Rust’s collections can be grouped into four major categories:</p>
+<ul>
+<li class="translate-text">序列：Vec、VecDeque、LinkedList</li><li>Sequences: <a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a>, <a href="struct.VecDeque.html" title="VecDeque"><code>VecDeque</code></a>, <a href="struct.LinkedList.html" title="LinkedList"><code>LinkedList</code></a></li>
+<li class="translate-text">Map：HashMap、BTreeMap</li><li>Maps: <a href="hash_map/struct.HashMap.html" title="HashMap"><code>HashMap</code></a>, <a href="struct.BTreeMap.html" title="BTreeMap"><code>BTreeMap</code></a></li>
+<li class="translate-text">集合：HashSet、BTreeSet</li><li>Sets: <a href="hash_set/struct.HashSet.html" title="HashSet"><code>HashSet</code></a>, <a href="struct.BTreeSet.html" title="BTreeSet"><code>BTreeSet</code></a></li>
+<li class="translate-text">杂项：二进制堆</li><li>Misc: <a href="struct.BinaryHeap.html" title="BinaryHeap"><code>BinaryHeap</code></a></li>
+</ul>
+<h1 id="when-should-you-use-which-collection" class="section-header"><a href="#when-should-you-use-which-collection">When Should You Use Which Collection?</a></h1>
+<p class="translate-text">这些是关于何时应该考虑每个集合的相当高级和快速的细分。 有关各个集合的优缺点的详细讨论可以在他们自己的文档页面上找到。</p><p>These are fairly high-level and quick break-downs of when each collection
+should be considered. Detailed discussions of strengths and weaknesses of
+individual collections can be found on their own documentation pages.</p>
+<h3 id="use-a-vec-when" class="section-header"><a href="#use-a-vec-when">Use a <code>Vec</code> when:</a></h3>
+<ul>
+<li class="translate-text">您希望收集项目以供稍后处理或发送到其他地方，并且不关心存储的实际值的任何属性。</li><li>You want to collect items up to be processed or sent elsewhere later, and
+don’t care about any properties of the actual values being stored.</li>
+<li class="translate-text">您想要以特定顺序排列的元素序列，并且只会附加到（或接近）末尾。</li><li>You want a sequence of elements in a particular order, and will only be
+appending to (or near) the end.</li>
+<li class="translate-text">你想要一个堆栈。</li><li>You want a stack.</li>
+<li class="translate-text">你想要一个可调整大小的数组。</li><li>You want a resizable array.</li>
+<li class="translate-text">你想要一个堆分配的数组。</li><li>You want a heap-allocated array.</li>
+</ul>
+<h3 id="use-a-vecdeque-when" class="section-header"><a href="#use-a-vecdeque-when">Use a <code>VecDeque</code> when:</a></h3>
+<ul>
+<li class="translate-text">您需要一个支持在序列两端有效插入的 Vec。</li><li>You want a <a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a> that supports efficient insertion at both ends of the
+sequence.</li>
+<li class="translate-text">你想要一个队列。</li><li>You want a queue.</li>
+<li class="translate-text">你想要一个双端队列（deque）。</li><li>You want a double-ended queue (deque).</li>
+</ul>
+<h3 id="use-a-linkedlist-when" class="section-header"><a href="#use-a-linkedlist-when">Use a <code>LinkedList</code> when:</a></h3>
+<ul>
+<li class="translate-text">你想要一个未知大小的 Vec 或 VecDeque，并且不能容忍摊销。</li><li>You want a <a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a> or <a href="struct.VecDeque.html" title="VecDeque"><code>VecDeque</code></a> of unknown size, and can’t tolerate
+amortization.</li>
+<li class="translate-text">您想有效地拆分和附加列表。</li><li>You want to efficiently split and append lists.</li>
+<li class="translate-text">你绝对确定你真的，真的，想要一个双向链表。</li><li>You are <em>absolutely</em> certain you <em>really</em>, <em>truly</em>, want a doubly linked
+list.</li>
+</ul>
+<h3 id="use-a-hashmap-when" class="section-header"><a href="#use-a-hashmap-when">Use a <code>HashMap</code> when:</a></h3>
+<ul>
+<li class="translate-text">您希望将任意键与任意值相关联。</li><li>You want to associate arbitrary keys with an arbitrary value.</li>
+<li class="translate-text">你想要一个缓存。</li><li>You want a cache.</li>
+<li class="translate-text">你想要一张没有额外功能的Map。</li><li>You want a map, with no extra functionality.</li>
+</ul>
+<h3 id="use-a-btreemap-when" class="section-header"><a href="#use-a-btreemap-when">Use a <code>BTreeMap</code> when:</a></h3>
+<ul>
+<li class="translate-text">您想要一个按其键排序的Map。</li><li>You want a map sorted by its keys.</li>
+<li class="translate-text">您希望能够按需获得一系列条目。</li><li>You want to be able to get a range of entries on-demand.</li>
+<li class="translate-text">您对最小或最大的键值对是什么感兴趣。</li><li>You’re interested in what the smallest or largest key-value pair is.</li>
+<li class="translate-text">您想找到比某物更小或更大的最大或最小键。</li><li>You want to find the largest or smallest key that is smaller or larger
+than something.</li>
+</ul>
+<h3 id="use-the-set-variant-of-any-of-these-maps-when" class="section-header"><a href="#use-the-set-variant-of-any-of-these-maps-when">Use the <code>Set</code> variant of any of these <code>Map</code>s when:</a></h3>
+<ul>
+<li class="translate-text">你只想记住你看过哪些键。</li><li>You just want to remember which keys you’ve seen.</li>
+<li class="translate-text">与您的键关联没有有意义的价值。</li><li>There is no meaningful value to associate with your keys.</li>
+<li class="translate-text">你只想要一套。</li><li>You just want a set.</li>
+</ul>
+<h3 id="use-a-binaryheap-when" class="section-header"><a href="#use-a-binaryheap-when">Use a <code>BinaryHeap</code> when:</a></h3>
+<ul>
+<li class="translate-text">您想存储一堆元素，但只想在任何给定时间处理“最大”或“最重要”的元素。</li><li>You want to store a bunch of elements, but only ever want to process the
+“biggest” or “most important” one at any given time.</li>
+<li class="translate-text">你想要一个优先队列。</li><li>You want a priority queue.</li>
+</ul>
+<h1 id="performance" class="section-header"><a href="#performance">Performance</a></h1>
+<p class="translate-text">为工作选择正确的系列需要了解每个系列的优势。 这里我们简要总结一下不同集合对某些重要操作的性能。 有关更多详细信息，请参阅每种类型的文档，并注意实际方法的名称可能与某些集合的下表不同。</p><p>Choosing the right collection for the job requires an understanding of what
+each collection is good at. Here we briefly summarize the performance of
+different collections for certain important operations. For further details,
+see each type’s documentation, and note that the names of actual methods may
+differ from the tables below on certain collections.</p>
+<p class="translate-text">在整个文档中，我们将遵循一些约定。 对于所有操作，集合的大小由 n 表示。 如果操作中涉及另一个集合，则它包含 m 个元素。 具有摊销成本的操作以 * 为后缀。 具有预期成本的操作以 ~ 为后缀。</p><p>Throughout the documentation, we will follow a few conventions. For all
+operations, the collection’s size is denoted by n. If another collection is
+involved in the operation, it contains m elements. Operations which have an
+<em>amortized</em> cost are suffixed with a <code>*</code>. Operations with an <em>expected</em>
+cost are suffixed with a <code>~</code>.</p>
+<p class="translate-text">所有摊销成本均用于在容量耗尽时可能需要调整大小。 如果发生调整大小，则需要 O(n) 时间。 我们的收藏永远不会自动缩减，因此移除操作不会摊销。 在足够大的一系列操作中，每个操作的平均成本将确定地等于给定成本。</p><p>All amortized costs are for the potential need to resize when capacity is
+exhausted. If a resize occurs it will take <em>O</em>(<em>n</em>) time. Our collections never
+automatically shrink, so removal operations aren’t amortized. Over a
+sufficiently large series of operations, the average cost per operation will
+deterministically equal the given cost.</p>
+<p class="translate-text">由于散列的概率性质，只有 HashMap 具有预期成本。 理论上，HashMap 的性能可能会变差，尽管可能性很小。</p><p>Only <a href="hash_map/struct.HashMap.html" title="HashMap"><code>HashMap</code></a> has expected costs, due to the probabilistic nature of hashing.
+It is theoretically possible, though very unlikely, for <a href="hash_map/struct.HashMap.html" title="HashMap"><code>HashMap</code></a> to
+experience worse performance.</p>
+<h2 id="sequences" class="section-header"><a href="#sequences">Sequences</a></h2><table><thead><tr><th></th><th>get(i)</th><th>insert(i)</th><th>remove(i)</th><th>append</th><th>split_off(i)</th></tr></thead><tbody>
+<tr><td><a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a></td><td>O(1)</td><td>O(n-i)*</td><td>O(n-i)</td><td>O(m)*</td><td>O(n-i)</td></tr>
+<tr><td><a href="struct.VecDeque.html" title="VecDeque"><code>VecDeque</code></a></td><td>O(1)</td><td>O(min(i, n-i))*</td><td>O(min(i, n-i))</td><td>O(m)*</td><td>O(min(i, n-i))</td></tr>
+<tr><td><a href="struct.LinkedList.html" title="LinkedList"><code>LinkedList</code></a></td><td>O(min(i, n-i))</td><td>O(min(i, n-i))</td><td>O(min(i, n-i))</td><td>O(1)</td><td>O(min(i, n-i))</td></tr>
+</tbody></table>
+<p class="translate-text">请注意，在出现关系的地方，Vec 通常会比 VecDeque 快，而 VecDeque 通常会比 LinkedList 快。</p><p>Note that where ties occur, <a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a> is generally going to be faster than <a href="struct.VecDeque.html" title="VecDeque"><code>VecDeque</code></a>, and
+<a href="struct.VecDeque.html" title="VecDeque"><code>VecDeque</code></a> is generally going to be faster than <a href="struct.LinkedList.html" title="LinkedList"><code>LinkedList</code></a>.</p>
+<h2 id="maps" class="section-header"><a href="#maps">Maps</a></h2>
+<p class="translate-text">对于 Set，所有操作都具有等效 Map 操作的成本。</p><p>For Sets, all operations have the cost of the equivalent Map operation.</p>
+<table><thead><tr><th></th><th>get</th><th>insert</th><th>remove</th><th>range</th><th>append</th></tr></thead><tbody>
+<tr><td><a href="hash_map/struct.HashMap.html" title="HashMap"><code>HashMap</code></a></td><td>O(1)~</td><td>O(1)~*</td><td>O(1)~</td><td>N/A</td><td>N/A</td></tr>
+<tr><td><a href="struct.BTreeMap.html" title="BTreeMap"><code>BTreeMap</code></a></td><td>O(log(n))</td><td>O(log(n))</td><td>O(log(n))</td><td>O(log(n))</td><td>O(n+m)</td></tr>
+</tbody></table>
+<h1 id="correct-and-efficient-usage-of-collections" class="section-header"><a href="#correct-and-efficient-usage-of-collections">Correct and Efficient Usage of Collections</a></h1>
+<p class="translate-text">当然，知道哪个系列最适合这项工作并不能立即让您正确使用它。 以下是一些有效和正确使用一般标准集合的快速提示。 如果您对如何使用特定集合特别感兴趣，请查阅其文档以获取详细讨论和代码示例。</p><p>Of course, knowing which collection is the right one for the job doesn’t
+instantly permit you to use it correctly. Here are some quick tips for
+efficient and correct usage of the standard collections in general. If
+you’re interested in how to use a specific collection in particular, consult
+its documentation for detailed discussion and code examples.</p>
+<h2 id="capacity-management" class="section-header"><a href="#capacity-management">Capacity Management</a></h2>
+<p class="translate-text">许多集合提供了几个引用“容量”的构造函数和方法。 这些集合通常建立在数组之上。 最理想的情况是，这个数组的大小正好适合只适合存储在集合中的元素，但是对于集合来说这样做效率很低。 如果后备数组在任何时候都是正确的大小，那么每次插入一个元素时，集合都必须增长数组以适应它。 由于大多数计算机上分配和管理内存的方式，这几乎肯定需要分配一个全新的数组并将每个元素从旧数组复制到新数组中。 希望您能看到这对每个操作都不是很有效。</p><p>Many collections provide several constructors and methods that refer to
+“capacity”. These collections are generally built on top of an array.
+Optimally, this array would be exactly the right size to fit only the
+elements stored in the collection, but for the collection to do this would
+be very inefficient. If the backing array was exactly the right size at all
+times, then every time an element is inserted, the collection would have to
+grow the array to fit it. Due to the way memory is allocated and managed on
+most computers, this would almost surely require allocating an entirely new
+array and copying every single element from the old one into the new one.
+Hopefully you can see that this wouldn’t be very efficient to do on every
+operation.</p>
+<p class="translate-text">因此，大多数集合使用摊销分配策略。 他们通常让自己拥有相当数量的空闲空间，因此他们只需要偶尔成长。 当它们确实增长时，它们会分配一个更大的数组来将元素移动到其中，这样需要一段时间才能需要另一个增长。 虽然这个策略总体上很好，但如果集合永远不必调整其支持数组的大小，那就更好了。 不幸的是，集合本身并没有足够的信息来做这件事。 因此，由我们程序员来给它提示。</p><p>Most collections therefore use an <em>amortized</em> allocation strategy. They
+generally let themselves have a fair amount of unoccupied space so that they
+only have to grow on occasion. When they do grow, they allocate a
+substantially larger array to move the elements into so that it will take a
+while for another grow to be required. While this strategy is great in
+general, it would be even better if the collection <em>never</em> had to resize its
+backing array. Unfortunately, the collection itself doesn’t have enough
+information to do this itself. Therefore, it is up to us programmers to give
+it hints.</p>
+<p class="translate-text">任何 with_capacity 构造函数都会指示集合为指定数量的元素分配足够的空间。 理想情况下，这将针对那么多元素，但一些实现细节可能会阻止这种情况。 有关详细信息，请参阅特定于集合的文档。 通常，当您确切知道要插入多少个元素或至少对该数字有一个合理的上限时，请使用 with_capacity。</p><p>Any <code>with_capacity</code> constructor will instruct the collection to allocate
+enough space for the specified number of elements. Ideally this will be for
+exactly that many elements, but some implementation details may prevent
+this. See collection-specific documentation for details. In general, use
+<code>with_capacity</code> when you know exactly how many elements will be inserted, or
+at least have a reasonable upper-bound on that number.</p>
+<p class="translate-text">当预计会有大量元素涌入时，reserve 系列方法可用于向集合暗示它应该为即将到来的项目腾出多少空间。 与 with_capacity 一样，这些方法的精确行为将特定于感兴趣的集合。</p><p>When anticipating a large influx of elements, the <code>reserve</code> family of
+methods can be used to hint to the collection how much room it should make
+for the coming items. As with <code>with_capacity</code>, the precise behavior of
+these methods will be specific to the collection of interest.</p>
+<p class="translate-text">为了获得最佳性能，集合通常会避免自身收缩。 如果您认为集合不会很快包含更多元素，或者只是真的需要内存，则 shrink_to_fit 方法会提示集合将支持数组收缩到能够容纳其元素的最小大小。</p><p>For optimal performance, collections will generally avoid shrinking
+themselves. If you believe that a collection will not soon contain any more
+elements, or just really need the memory, the <code>shrink_to_fit</code> method prompts
+the collection to shrink the backing array to the minimum size capable of
+holding its elements.</p>
+<p class="translate-text">最后，如果您对集合的实际容量感兴趣，大多数集合都提供了一种容量方法来按需查询此信息。 这可用于调试目的，或与保留方法一起使用。</p><p>Finally, if ever you’re interested in what the actual capacity of the
+collection is, most collections provide a <code>capacity</code> method to query this
+information on demand. This can be useful for debugging purposes, or for
+use with the <code>reserve</code> methods.</p>
+<h2 id="iterators" class="section-header"><a href="#iterators">Iterators</a></h2>
+<p class="translate-text">迭代器是整个 Rust 标准库中使用的强大且健壮的机制。 迭代器以通用、安全、高效和方便的方式提供一系列值。 迭代器的内容通常是惰性求值的，因此只有实际需要的值才会被实际生成，不需要进行分配来临时存储它们。 迭代器主要使用 for 循环使用，尽管许多函数在需要集合或值序列的地方也使用迭代器。</p><p>Iterators are a powerful and robust mechanism used throughout Rust’s
+standard libraries. Iterators provide a sequence of values in a generic,
+safe, efficient and convenient way. The contents of an iterator are usually
+<em>lazily</em> evaluated, so that only the values that are actually needed are
+ever actually produced, and no allocation need be done to temporarily store
+them. Iterators are primarily consumed using a <code>for</code> loop, although many
+functions also take iterators where a collection or sequence of values is
+desired.</p>
+<p class="translate-text">所有标准集合都提供了几个迭代器来执行对其内容的批量操作。 几乎每个集合都应该提供的三个主要迭代器是 iter、iter_mut 和 into_iter。 其中一些不提供在集合中，如果提供它们是不合理或不合理的。</p><p>All of the standard collections provide several iterators for performing
+bulk manipulation of their contents. The three primary iterators almost
+every collection should provide are <code>iter</code>, <code>iter_mut</code>, and <code>into_iter</code>.
+Some of these are not provided on collections where it would be unsound or
+unreasonable to provide them.</p>
+<p class="translate-text">iter 以最“自然”的顺序提供对集合所有内容的不可变引用的迭代器。 对于像 Vec 这样的序列集合，这意味着项目将从 0 开始按索引的递增顺序产生。对于像 BTreeMap 这样的有序集合，这意味着项目将按排序顺序产生。 对于像 HashMap 这样的无序集合，项目将按照内部表示最方便的顺序产生。 这对于阅读集合的所有内容非常有用。</p><p><code>iter</code> provides an iterator of immutable references to all the contents of a
+collection in the most “natural” order. For sequence collections like <a href="../vec/struct.Vec.html" title="Vec"><code>Vec</code></a>,
+this means the items will be yielded in increasing order of index starting
+at 0. For ordered collections like <a href="struct.BTreeMap.html" title="BTreeMap"><code>BTreeMap</code></a>, this means that the items
+will be yielded in sorted order. For unordered collections like <a href="hash_map/struct.HashMap.html" title="HashMap"><code>HashMap</code></a>,
+the items will be yielded in whatever order the internal representation made
+most convenient. This is great for reading through all the contents of the
+collection.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let</span> <span class="ident">vec</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
+<span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="ident">vec</span>.<span class="ident">iter</span>() {
+   <span class="macro">println!</span>(<span class="string">&quot;vec contained {}&quot;</span>, <span class="ident">x</span>);
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20vec%20%3D%20vec!%5B1%2C%202%2C%203%2C%204%5D%3B%0Afor%20x%20in%20vec.iter()%20%7B%0A%20%20%20println!(%22vec%20contained%20%7B%7D%22%2C%20x)%3B%0A%7D%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">iter_mut 以与 iter 相同的顺序提供可变引用的迭代器。 这对于改变集合的所有内容非常有用。</p><p><code>iter_mut</code> provides an iterator of <em>mutable</em> references in the same order as
+<code>iter</code>. This is great for mutating all the contents of the collection.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">vec</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
+<span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="ident">vec</span>.<span class="ident">iter_mut</span>() {
+   <span class="kw-2">*</span><span class="ident">x</span> <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20mut%20vec%20%3D%20vec!%5B1%2C%202%2C%203%2C%204%5D%3B%0Afor%20x%20in%20vec.iter_mut()%20%7B%0A%20%20%20*x%20%2B%3D%201%3B%0A%7D%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">into_iter 将实际集合转换为按值对其内容进行迭代的迭代器。 当不再需要集合本身并且在其他地方需要这些值时，这非常有用。 将 extend 与 into_iter 一起使用是将一个集合的内容移动到另一个集合的主要方式。 extend 自动调用 into_iter，并接受任何 T: IntoIterator。 在迭代器本身上调用 collect 也是将一个集合转换为另一个集合的好方法。 这两种方法都应在内部使用上一节中讨论的容量管理工具来尽可能高效地执行此操作。</p><p><code>into_iter</code> transforms the actual collection into an iterator over its
+contents by-value. This is great when the collection itself is no longer
+needed, and the values are needed elsewhere. Using <code>extend</code> with <code>into_iter</code>
+is the main way that contents of one collection are moved into another.
+<code>extend</code> automatically calls <code>into_iter</code>, and takes any <code>T: </code><a href="../iter/trait.IntoIterator.html"><code>IntoIterator</code></a>.
+Calling <code>collect</code> on an iterator itself is also a great way to convert one
+collection into another. Both of these methods should internally use the
+capacity management tools discussed in the previous section to do this as
+efficiently as possible.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">vec1</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
+<span class="kw">let</span> <span class="ident">vec2</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>];
+<span class="ident">vec1</span>.<span class="ident">extend</span>(<span class="ident">vec2</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20mut%20vec1%20%3D%20vec!%5B1%2C%202%2C%203%2C%204%5D%3B%0Alet%20vec2%20%3D%20vec!%5B10%2C%2020%2C%2030%2C%2040%5D%3B%0Avec1.extend(vec2)%3B%0A%7D&amp;edition=2018">Run</a></div>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::collections::VecDeque</span>;
+
+<span class="kw">let</span> <span class="ident">vec</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
+<span class="kw">let</span> <span class="ident">buf</span>: <span class="ident">VecDeque</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">vec</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>();</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Acollections%3A%3AVecDeque%3B%0A%0Alet%20vec%20%3D%20vec!%5B1%2C%202%2C%203%2C%204%5D%3B%0Alet%20buf%3A%20VecDeque%3C_%3E%20%3D%20vec.into_iter().collect()%3B%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">迭代器还提供了一系列适配器方法，用于对序列执行公共线程。 适配器中有一些功能最爱，如Map、折叠、跳过和拍摄。 集合特别感兴趣的是 rev 适配器，它反转任何支持此操作的迭代器。 大多数集合提供可逆迭代器作为以相反顺序迭代它们的方式。</p><p>Iterators also provide a series of <em>adapter</em> methods for performing common
+threads to sequences. Among the adapters are functional favorites like <code>map</code>,
+<code>fold</code>, <code>skip</code> and <code>take</code>. Of particular interest to collections is the
+<code>rev</code> adapter, that reverses any iterator that supports this operation. Most
+collections provide reversible iterators as the way to iterate over them in
+reverse order.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let</span> <span class="ident">vec</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];
+<span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="ident">vec</span>.<span class="ident">iter</span>().<span class="ident">rev</span>() {
+   <span class="macro">println!</span>(<span class="string">&quot;vec contained {}&quot;</span>, <span class="ident">x</span>);
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20vec%20%3D%20vec!%5B1%2C%202%2C%203%2C%204%5D%3B%0Afor%20x%20in%20vec.iter().rev()%20%7B%0A%20%20%20println!(%22vec%20contained%20%7B%7D%22%2C%20x)%3B%0A%7D%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">其他几个集合方法也返回迭代器以产生一系列结果，但避免分配整个集合来存储结果。这提供了最大的灵活性，因为如果需要，可以调用 collect 或 extend 将序列“管道”到任何集合中。 否则，可以使用 for 循环对序列进行循环。 迭代器也可以在部分使用后被丢弃，从而防止计算未使用的项目。</p><p>Several other collection methods also return iterators to yield a sequence
+of results but avoid allocating an entire collection to store the result in.
+This provides maximum flexibility as <code>collect</code> or <code>extend</code> can be called to
+“pipe” the sequence into any collection if desired. Otherwise, the sequence
+can be looped over with a <code>for</code> loop. The iterator can also be discarded
+after partial use, preventing the computation of the unused items.</p>
+<h2 id="entries" class="section-header"><a href="#entries">Entries</a></h2>
+<p class="translate-text">entry API 旨在提供一种有效的机制来根据是否存在键来操作映射的内容。 主要的激励用例是提供有效的累加器映射。 例如，如果一个人希望保持每个键被看到的次数的计数，他们将不得不执行一些条件逻辑来判断这是否是第一次看到这个键。 通常，这需要在查找后进行插入，从而有效地重复每次插入时的搜索工作。</p><p>The <code>entry</code> API is intended to provide an efficient mechanism for
+manipulating the contents of a map conditionally on the presence of a key or
+not. The primary motivating use case for this is to provide efficient
+accumulator maps. For instance, if one wishes to maintain a count of the
+number of times each key has been seen, they will have to perform some
+conditional logic on whether this is the first time the key has been seen or
+not. Normally, this would require a <code>find</code> followed by an <code>insert</code>,
+effectively duplicating the search effort on each insertion.</p>
+<p class="translate-text">当用户调用 map.entry(&key) 时，map 将搜索键，然后生成 Entry 枚举的变体。</p><p>When a user calls <code>map.entry(&amp;key)</code>, the map will search for the key and
+then yield a variant of the <code>Entry</code> enum.</p>
+<p class="translate-text">如果产生了 Vacant(entry)，则找不到密钥。 在这种情况下，唯一有效的操作是向条目中插入一个值。 完成此操作后，空条目将被消耗并转换为对插入值的可变引用。 这允许在搜索本身的生命周期之外进一步操作值。 如果无论值是否刚刚插入，都需要对值执行复杂的逻辑，这很有用。</p><p>If a <code>Vacant(entry)</code> is yielded, then the key <em>was not</em> found. In this case
+the only valid operation is to <code>insert</code> a value into the entry. When this is
+done, the vacant entry is consumed and converted into a mutable reference to
+the value that was inserted. This allows for further manipulation of the
+value beyond the lifetime of the search itself. This is useful if complex
+logic needs to be performed on the value regardless of whether the value was
+just inserted.</p>
+<p class="translate-text">如果产生了 Occupied(entry)，则找到了密钥。 在这种情况下，用户有几个选择：他们可以获取、插入或删除被占用条目的值。 此外，他们可以将占用的条目转换为对其值的可变引用，从而为空置的插入案例提供对称性。</p><p>If an <code>Occupied(entry)</code> is yielded, then the key <em>was</em> found. In this case,
+the user has several options: they can <code>get</code>, <code>insert</code> or <code>remove</code> the
+value of the occupied entry. Additionally, they can convert the occupied
+entry into a mutable reference to its value, providing symmetry to the
+vacant <code>insert</code> case.</p>
+<h3 id="examples" class="section-header"><a href="#examples">Examples</a></h3>
+<p class="translate-text">以下是使用条目的两种主要方式。 首先，一个简单的示例，其中对值执行的逻辑是微不足道的。</p><p>Here are the two primary ways in which <code>entry</code> is used. First, a simple
+example where the logic performed on the values is trivial.</p>
+<h4 id="counting-the-number-of-times-each-character-in-a-string-occurs" class="section-header"><a href="#counting-the-number-of-times-each-character-in-a-string-occurs">Counting the number of times each character in a string occurs</a></h4>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::collections::btree_map::BTreeMap</span>;
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">count</span> <span class="op">=</span> <span class="ident">BTreeMap::new</span>();
+<span class="kw">let</span> <span class="ident">message</span> <span class="op">=</span> <span class="string">&quot;she sells sea shells by the sea shore&quot;</span>;
+
+<span class="kw">for</span> <span class="ident">c</span> <span class="kw">in</span> <span class="ident">message</span>.<span class="ident">chars</span>() {
+    <span class="kw-2">*</span><span class="ident">count</span>.<span class="ident">entry</span>(<span class="ident">c</span>).<span class="ident">or_insert</span>(<span class="number">0</span>) <span class="op">+</span><span class="op">=</span> <span class="number">1</span>;
+}
+
+<span class="macro">assert_eq!</span>(<span class="ident">count</span>.<span class="ident">get</span>(<span class="kw-2">&amp;</span><span class="string">&#39;s&#39;</span>), <span class="prelude-val">Some</span>(<span class="kw-2">&amp;</span><span class="number">8</span>));
+
+<span class="macro">println!</span>(<span class="string">&quot;Number of occurrences of each character&quot;</span>);
+<span class="kw">for</span> (<span class="ident">char</span>, <span class="ident">count</span>) <span class="kw">in</span> <span class="kw-2">&amp;</span><span class="ident">count</span> {
+    <span class="macro">println!</span>(<span class="string">&quot;{}: {}&quot;</span>, <span class="ident">char</span>, <span class="ident">count</span>);
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Acollections%3A%3Abtree_map%3A%3ABTreeMap%3B%0A%0Alet%20mut%20count%20%3D%20BTreeMap%3A%3Anew()%3B%0Alet%20message%20%3D%20%22she%20sells%20sea%20shells%20by%20the%20sea%20shore%22%3B%0A%0Afor%20c%20in%20message.chars()%20%7B%0A%20%20%20%20*count.entry(c).or_insert(0)%20%2B%3D%201%3B%0A%7D%0A%0Aassert_eq!(count.get(%26's')%2C%20Some(%268))%3B%0A%0Aprintln!(%22Number%20of%20occurrences%20of%20each%20character%22)%3B%0Afor%20(char%2C%20count)%20in%20%26count%20%7B%0A%20%20%20%20println!(%22%7B%7D%3A%20%7B%7D%22%2C%20char%2C%20count)%3B%0A%7D%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">当要对值执行的逻辑比较复杂时，我们可以简单地使用入口 API 来确保值被初始化，然后再执行逻辑。</p><p>When the logic to be performed on the value is more complex, we may simply
+use the <code>entry</code> API to ensure that the value is initialized and perform the
+logic afterwards.</p>
+<h4 id="tracking-the-inebriation-of-customers-at-a-bar" class="section-header"><a href="#tracking-the-inebriation-of-customers-at-a-bar">Tracking the inebriation of customers at a bar</a></h4>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::collections::btree_map::BTreeMap</span>;
+
+<span class="comment">// A client of the bar. They have a blood alcohol level.</span>
+<span class="kw">struct</span> <span class="ident">Person</span> { <span class="ident">blood_alcohol</span>: <span class="ident">f32</span> }
+
+<span class="comment">// All the orders made to the bar, by client ID.</span>
+<span class="kw">let</span> <span class="ident">orders</span> <span class="op">=</span> <span class="macro">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>];
+
+<span class="comment">// Our clients.</span>
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">blood_alcohol</span> <span class="op">=</span> <span class="ident">BTreeMap::new</span>();
+
+<span class="kw">for</span> <span class="ident">id</span> <span class="kw">in</span> <span class="ident">orders</span> {
+    <span class="comment">// If this is the first time we&#39;ve seen this customer, initialize them</span>
+    <span class="comment">// with no blood alcohol. Otherwise, just retrieve them.</span>
+    <span class="kw">let</span> <span class="ident">person</span> <span class="op">=</span> <span class="ident">blood_alcohol</span>.<span class="ident">entry</span>(<span class="ident">id</span>).<span class="ident">or_insert</span>(<span class="ident">Person</span> { <span class="ident">blood_alcohol</span>: <span class="number">0.0</span> });
+
+    <span class="comment">// Reduce their blood alcohol level. It takes time to order and drink a beer!</span>
+    <span class="ident">person</span>.<span class="ident">blood_alcohol</span> <span class="kw-2">*</span><span class="op">=</span> <span class="number">0.9</span>;
+
+    <span class="comment">// Check if they&#39;re sober enough to have another beer.</span>
+    <span class="kw">if</span> <span class="ident">person</span>.<span class="ident">blood_alcohol</span> <span class="op">&gt;</span> <span class="number">0.3</span> {
+        <span class="comment">// Too drunk... for now.</span>
+        <span class="macro">println!</span>(<span class="string">&quot;Sorry {}, I have to cut you off&quot;</span>, <span class="ident">id</span>);
+    } <span class="kw">else</span> {
+        <span class="comment">// Have another!</span>
+        <span class="ident">person</span>.<span class="ident">blood_alcohol</span> <span class="op">+</span><span class="op">=</span> <span class="number">0.1</span>;
+    }
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Acollections%3A%3Abtree_map%3A%3ABTreeMap%3B%0A%0A%2F%2F%20A%20client%20of%20the%20bar.%20They%20have%20a%20blood%20alcohol%20level.%0Astruct%20Person%20%7B%20blood_alcohol%3A%20f32%20%7D%0A%0A%2F%2F%20All%20the%20orders%20made%20to%20the%20bar%2C%20by%20client%20ID.%0Alet%20orders%20%3D%20vec!%5B1%2C%202%2C%201%2C%202%2C%203%2C%204%2C%201%2C%202%2C%202%2C%203%2C%204%2C%201%2C%201%2C%201%5D%3B%0A%0A%2F%2F%20Our%20clients.%0Alet%20mut%20blood_alcohol%20%3D%20BTreeMap%3A%3Anew()%3B%0A%0Afor%20id%20in%20orders%20%7B%0A%20%20%20%20%2F%2F%20If%20this%20is%20the%20first%20time%20we've%20seen%20this%20customer%2C%20initialize%20them%0A%20%20%20%20%2F%2F%20with%20no%20blood%20alcohol.%20Otherwise%2C%20just%20retrieve%20them.%0A%20%20%20%20let%20person%20%3D%20blood_alcohol.entry(id).or_insert(Person%20%7B%20blood_alcohol%3A%200.0%20%7D)%3B%0A%0A%20%20%20%20%2F%2F%20Reduce%20their%20blood%20alcohol%20level.%20It%20takes%20time%20to%20order%20and%20drink%20a%20beer!%0A%20%20%20%20person.blood_alcohol%20*%3D%200.9%3B%0A%0A%20%20%20%20%2F%2F%20Check%20if%20they're%20sober%20enough%20to%20have%20another%20beer.%0A%20%20%20%20if%20person.blood_alcohol%20%3E%200.3%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Too%20drunk...%20for%20now.%0A%20%20%20%20%20%20%20%20println!(%22Sorry%20%7B%7D%2C%20I%20have%20to%20cut%20you%20off%22%2C%20id)%3B%0A%20%20%20%20%7D%20else%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20Have%20another!%0A%20%20%20%20%20%20%20%20person.blood_alcohol%20%2B%3D%200.1%3B%0A%20%20%20%20%7D%0A%7D%0A%7D&amp;edition=2018">Run</a></div>
+<h1 id="insert-and-complex-keys" class="section-header"><a href="#insert-and-complex-keys">Insert and complex keys</a></h1>
+<p class="translate-text">如果我们有一个更复杂的键，调用 insert 将不会更新键的值。 例如：</p><p>If we have a more complex key, calls to <code>insert</code> will
+not update the value of the key. For example:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::cmp::Ordering</span>;
+<span class="kw">use</span> <span class="ident">std::collections::BTreeMap</span>;
+<span class="kw">use</span> <span class="ident">std::hash</span>::{<span class="ident">Hash</span>, <span class="ident">Hasher</span>};
+
+<span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>)]</span>
+<span class="kw">struct</span> <span class="ident">Foo</span> {
+    <span class="ident">a</span>: <span class="ident">u32</span>,
+    <span class="ident">b</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> <span class="ident">str</span>,
+}
+
+<span class="comment">// we will compare `Foo`s by their `a` value only.</span>
+<span class="kw">impl</span> <span class="ident">PartialEq</span> <span class="kw">for</span> <span class="ident">Foo</span> {
+    <span class="kw">fn</span> <span class="ident">eq</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">bool</span> { <span class="self">self</span>.<span class="ident">a</span> <span class="op">=</span><span class="op">=</span> <span class="ident">other</span>.<span class="ident">a</span> }
+}
+
+<span class="kw">impl</span> <span class="ident">Eq</span> <span class="kw">for</span> <span class="ident">Foo</span> {}
+
+<span class="comment">// we will hash `Foo`s by their `a` value only.</span>
+<span class="kw">impl</span> <span class="ident">Hash</span> <span class="kw">for</span> <span class="ident">Foo</span> {
+    <span class="kw">fn</span> <span class="ident">hash</span><span class="op">&lt;</span><span class="ident">H</span>: <span class="ident">Hasher</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">h</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">H</span>) { <span class="self">self</span>.<span class="ident">a</span>.<span class="ident">hash</span>(<span class="ident">h</span>); }
+}
+
+<span class="kw">impl</span> <span class="ident">PartialOrd</span> <span class="kw">for</span> <span class="ident">Foo</span> {
+    <span class="kw">fn</span> <span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Ordering</span><span class="op">&gt;</span> { <span class="self">self</span>.<span class="ident">a</span>.<span class="ident">partial_cmp</span>(<span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="ident">a</span>) }
+}
+
+<span class="kw">impl</span> <span class="ident">Ord</span> <span class="kw">for</span> <span class="ident">Foo</span> {
+    <span class="kw">fn</span> <span class="ident">cmp</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">other</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Ordering</span> { <span class="self">self</span>.<span class="ident">a</span>.<span class="ident">cmp</span>(<span class="kw-2">&amp;</span><span class="ident">other</span>.<span class="ident">a</span>) }
+}
+
+<span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">map</span> <span class="op">=</span> <span class="ident">BTreeMap::new</span>();
+<span class="ident">map</span>.<span class="ident">insert</span>(<span class="ident">Foo</span> { <span class="ident">a</span>: <span class="number">1</span>, <span class="ident">b</span>: <span class="string">&quot;baz&quot;</span> }, <span class="number">99</span>);
+
+<span class="comment">// We already have a Foo with an a of 1, so this will be updating the value.</span>
+<span class="ident">map</span>.<span class="ident">insert</span>(<span class="ident">Foo</span> { <span class="ident">a</span>: <span class="number">1</span>, <span class="ident">b</span>: <span class="string">&quot;xyz&quot;</span> }, <span class="number">100</span>);
+
+<span class="comment">// The value has been updated...</span>
+<span class="macro">assert_eq!</span>(<span class="ident">map</span>.<span class="ident">values</span>().<span class="ident">next</span>().<span class="ident">unwrap</span>(), <span class="kw-2">&amp;</span><span class="number">100</span>);
+
+<span class="comment">// ...but the key hasn&#39;t changed. b is still &quot;baz&quot;, not &quot;xyz&quot;.</span>
+<span class="macro">assert_eq!</span>(<span class="ident">map</span>.<span class="ident">keys</span>().<span class="ident">next</span>().<span class="ident">unwrap</span>().<span class="ident">b</span>, <span class="string">&quot;baz&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Acmp%3A%3AOrdering%3B%0Ause%20std%3A%3Acollections%3A%3ABTreeMap%3B%0Ause%20std%3A%3Ahash%3A%3A%7BHash%2C%20Hasher%7D%3B%0A%0A%23%5Bderive(Debug)%5D%0Astruct%20Foo%20%7B%0A%20%20%20%20a%3A%20u32%2C%0A%20%20%20%20b%3A%20%26'static%20str%2C%0A%7D%0A%0A%2F%2F%20we%20will%20compare%20%60Foo%60s%20by%20their%20%60a%60%20value%20only.%0Aimpl%20PartialEq%20for%20Foo%20%7B%0A%20%20%20%20fn%20eq(%26self%2C%20other%3A%20%26Self)%20-%3E%20bool%20%7B%20self.a%20%3D%3D%20other.a%20%7D%0A%7D%0A%0Aimpl%20Eq%20for%20Foo%20%7B%7D%0A%0A%2F%2F%20we%20will%20hash%20%60Foo%60s%20by%20their%20%60a%60%20value%20only.%0Aimpl%20Hash%20for%20Foo%20%7B%0A%20%20%20%20fn%20hash%3CH%3A%20Hasher%3E(%26self%2C%20h%3A%20%26mut%20H)%20%7B%20self.a.hash(h)%3B%20%7D%0A%7D%0A%0Aimpl%20PartialOrd%20for%20Foo%20%7B%0A%20%20%20%20fn%20partial_cmp(%26self%2C%20other%3A%20%26Self)%20-%3E%20Option%3COrdering%3E%20%7B%20self.a.partial_cmp(%26other.a)%20%7D%0A%7D%0A%0Aimpl%20Ord%20for%20Foo%20%7B%0A%20%20%20%20fn%20cmp(%26self%2C%20other%3A%20%26Self)%20-%3E%20Ordering%20%7B%20self.a.cmp(%26other.a)%20%7D%0A%7D%0A%0Alet%20mut%20map%20%3D%20BTreeMap%3A%3Anew()%3B%0Amap.insert(Foo%20%7B%20a%3A%201%2C%20b%3A%20%22baz%22%20%7D%2C%2099)%3B%0A%0A%2F%2F%20We%20already%20have%20a%20Foo%20with%20an%20a%20of%201%2C%20so%20this%20will%20be%20updating%20the%20value.%0Amap.insert(Foo%20%7B%20a%3A%201%2C%20b%3A%20%22xyz%22%20%7D%2C%20100)%3B%0A%0A%2F%2F%20The%20value%20has%20been%20updated...%0Aassert_eq!(map.values().next().unwrap()%2C%20%26100)%3B%0A%0A%2F%2F%20...but%20the%20key%20hasn't%20changed.%20b%20is%20still%20%22baz%22%2C%20not%20%22xyz%22.%0Aassert_eq!(map.keys().next().unwrap().b%2C%20%22baz%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
+</div></details><h2 id="modules" class="section-header"><a href="#modules">Modules</a></h2>
+<div class="item-table"><div class="item-left module-item"><a class="mod" href="binary_heap/index.html" title="std::collections::binary_heap mod">binary_heap</a></div><div class="item-right docblock-short"><p>A priority queue implemented with a binary heap.</p>
+</div><div class="item-left module-item"><a class="mod" href="btree_map/index.html" title="std::collections::btree_map mod">btree_map</a></div><div class="item-right docblock-short"><p>A map based on a B-Tree.</p>
+</div><div class="item-left module-item"><a class="mod" href="btree_set/index.html" title="std::collections::btree_set mod">btree_set</a></div><div class="item-right docblock-short"><p>A set based on a B-Tree.</p>
+</div><div class="item-left module-item"><a class="mod" href="hash_map/index.html" title="std::collections::hash_map mod">hash_map</a></div><div class="item-right docblock-short"><p>A hash map implemented with quadratic probing and SIMD lookup.</p>
+</div><div class="item-left module-item"><a class="mod" href="hash_set/index.html" title="std::collections::hash_set mod">hash_set</a></div><div class="item-right docblock-short"><p>A hash set implemented as a <code>HashMap</code> where the value is <code>()</code>.</p>
+</div><div class="item-left module-item"><a class="mod" href="linked_list/index.html" title="std::collections::linked_list mod">linked_list</a></div><div class="item-right docblock-short"><p>A doubly-linked list with owned nodes.</p>
+</div><div class="item-left module-item"><a class="mod" href="vec_deque/index.html" title="std::collections::vec_deque mod">vec_deque</a></div><div class="item-right docblock-short"><p>A double-ended queue implemented with a growable ring buffer.</p>
+</div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
+<div class="item-table"><div class="item-left unstable module-item"><a class="struct" href="struct.TryReserveError.html" title="std::collections::TryReserveError struct">TryReserveError</a><span class="stab unstable" title="">Experimental</span></div><div class="item-right docblock-short"><p>The error type for <code>try_reserve</code> methods.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.BTreeMap.html" title="std::collections::BTreeMap struct">BTreeMap</a></div><div class="item-right docblock-short"><p>A map based on a <a href="https://en.wikipedia.org/wiki/B-tree">B-Tree</a>.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.BTreeSet.html" title="std::collections::BTreeSet struct">BTreeSet</a></div><div class="item-right docblock-short"><p>A set based on a B-Tree.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.BinaryHeap.html" title="std::collections::BinaryHeap struct">BinaryHeap</a></div><div class="item-right docblock-short"><p>A priority queue implemented with a binary heap.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.HashMap.html" title="std::collections::HashMap struct">HashMap</a></div><div class="item-right docblock-short"><p>A <a href="index.html#use-a-hashmap-when">hash map</a> implemented with quadratic probing and SIMD lookup.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.HashSet.html" title="std::collections::HashSet struct">HashSet</a></div><div class="item-right docblock-short"><p>A <a href="index.html#use-the-set-variant-of-any-of-these-maps-when">hash set</a> implemented as a <code>HashMap</code> where the value is <code>()</code>.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.LinkedList.html" title="std::collections::LinkedList struct">LinkedList</a></div><div class="item-right docblock-short"><p>A doubly-linked list with owned nodes.</p>
+</div><div class="item-left module-item"><a class="struct" href="struct.VecDeque.html" title="std::collections::VecDeque struct">VecDeque</a></div><div class="item-right docblock-short"><p>A double-ended queue implemented with a growable ring buffer.</p>
+</div></div><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
+<div class="item-table"><div class="item-left unstable module-item"><a class="enum" href="enum.TryReserveErrorKind.html" title="std::collections::TryReserveErrorKind enum">TryReserveErrorKind</a><span class="stab unstable" title="">Experimental</span></div><div class="item-right docblock-short"><p>Details of the allocation that caused a <code>TryReserveError</code></p>
+</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="std" data-search-index-js="../../search-index1.56.1.js" data-search-js="../../search1.56.1.js"></div>
+    <script src="../../main1.56.1.js"></script>
+</body></html>

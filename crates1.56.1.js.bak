@@ -1,0 +1,6 @@
+window.ALL_CRATES = ["alloc","core","proc_macro","std","test"];
+
+function ShowHelpTranslateDialog(a)
+{
+	age = prompt("请输入你的翻译建议:","感谢您的支持，当前功能还在开发中。请耐心等待下一版本");
+}
