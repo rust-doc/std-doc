@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Returns an estimate of the default amount of parallelism a program should use."><meta name="keywords" content="rust, rustlang, rust-lang, available_parallelism"><title>available_parallelism in std::thread - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize1.58.0.css"><link rel="stylesheet" type="text/css" href="../../rustdoc1.58.0.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light1.58.0.css" id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark1.58.0.css" disabled=""><link rel="stylesheet" type="text/css" href="../../ayu1.58.0.css" disabled=""><script id="default-settings"></script><script src="../../storage1.58.0.js"></script><script src="../../crates1.58.0.js"></script><script defer="" src="../../main1.58.0.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript1.58.0.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x161.58.0.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x321.58.0.png"><link rel="icon" type="image/svg+xml" href="../../favicon1.58.0.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow1.58.0.svg");}</style></head><body class="rustdoc fn"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../std/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo1.58.0.png' alt='logo'></div></a><div class="sidebar-elems"><h2 class="location">Other items in<br><a href="../index.html">std</a>::<wbr><a href="index.html">thread</a></h2><div id="sidebar-vars" data-name="available_parallelism" data-ty="fn" data-relpath=""></div><script defer="" src="sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush1.58.0.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel1.58.0.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Function <a href="../index.html">std</a>::<wbr><a href="index.html">thread</a>::<wbr><a class="fn" href="#">available_parallelism</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../clipboard1.58.0.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/std/thread/mod.rs.html#1521-1523" title="goto source code">[src]</a></span></h1><div class="docblock item-decl"><pre class="rust fn"><code>pub fn available_parallelism() -&gt; <a class="type" href="../io/type.Result.html" title="type std::io::Result">Result</a>&lt;<a class="struct" href="../num/struct.NonZeroUsize.html" title="struct std::num::NonZeroUsize">NonZeroUsize</a>&gt;</code></pre></div><div class="item-info"><div class="stab unstable"><span class="emoji">🔬</span> This is a nightly-only experimental API. (<code>available_parallelism</code>&nbsp;<a href="https://github.com/rust-lang/rust/issues/74479">#74479</a>)</div></div><details class="rustdoc-toggle top-doc" open=""><summary class="hideme"><span>Expand description</span></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/details[1]/div[1]" istranslationnode="true" main_mp="c3VkOz5xbHdlYGQ7PmRyZHl9cXN4cEtlcWNxfXhweHxTTA=="><p class="translate-text">返回程序应使用的默认并行度的估计值。</p><p>Returns an estimate of the default amount of parallelism a program should use.</p>
+<p class="translate-text">并行性是一种资源。 一台给定的机器提供了一定的并行能力，即它可以同时执行的计算数量的限制。 这个数字通常对应于 CPU 或计算机的数量，但在各种情况下可能会有所不同。</p><p>Parallelism is a resource. A given machine provides a certain capacity for
+parallelism, i.e., a bound on the number of computations it can perform
+simultaneously. This number often corresponds to the amount of CPUs or
+computer has, but it may diverge in various cases.</p>
+<p class="translate-text">诸如 VM 或容器编排器之类的主机环境可能希望限制其中的程序可用的并行量。 这样做通常是为了限制（无意中）资源密集型程序对在同一台机器上运行的其他程序的潜在影响。</p><p>Host environments such as VMs or container orchestrators may want to
+restrict the amount of parallelism made available to programs in them. This
+is often done to limit the potential impact of (unintentionally)
+resource-intensive programs on other programs running on the same machine.</p>
+<h2 id="limitations" class="section-header"><a href="#limitations">Limitations</a></h2>
+<p class="translate-text">此 API 的目的是提供一种简单且可移植的方式来查询程序应使用的默认并行度。 除其他外，它不公开有关 NUMA 区域的信息，不考虑（协）处理器能力的差异，并且不会修改程序的全局状态以更准确地查询可用并行量。</p><p>The purpose of this API is to provide an easy and portable way to query
+the default amount of parallelism the program should use. Among other things it
+does not expose information on NUMA regions, does not account for
+differences in (co)processor capabilities, and will not modify the program’s
+global state in order to more accurately query the amount of available
+parallelism.</p>
+<p class="translate-text">资源限制可以在程序运行期间更改，因此不会缓存该值，而是在每次调用此函数时重新计算。 不应从热代码中调用它。</p><p>Resource limits can be changed during the runtime of a program, therefore the value is
+not cached and instead recomputed every time this function is called. It should not be
+called from hot code.</p>
+<p class="translate-text">此函数返回的值应被视为在任何给定时间可用的实际并行量的简化近似值。 要更详细或更准确地了解程序可用的并行量，您可能还希望使用特定于平台的 API。 以下平台限制当前适用于 `available_parallelism`：</p><p>The value returned by this function should be considered a simplified
+approximation of the actual amount of parallelism available at any given
+time. To get a more detailed or precise overview of the amount of
+parallelism available to the program, you may wish to use
+platform-specific APIs as well. The following platform limitations currently
+apply to <code>available_parallelism</code>:</p>
+<p class="translate-text">在 Windows 上：</p><p>On Windows:</p>
+<ul>
+<li class="translate-text">它可能低估了具有超过 64 个逻辑 CPU 的系统上可用的并行量。 但是，程序通常需要特定的支持才能利用超过 64 个逻辑 CPU，并且在没有此类支持的情况下，此函数返回的数字准确地反映了程序默认可以使用的逻辑 CPU 的数量。</li><li>It may undercount the amount of parallelism available on systems with more
+than 64 logical CPUs. However, programs typically need specific support to
+take advantage of more than 64 logical CPUs, and in the absence of such
+support, the number returned by this function accurately reflects the
+number of logical CPUs the program can use by default.</li>
+<li class="translate-text">它可能会高估受进程范围关联掩码或作业对象限制限制的系统上可用的并行量。</li><li>It may overcount the amount of parallelism available on systems limited by
+process-wide affinity masks, or job object limitations.</li>
+</ul>
+<p class="translate-text">在 Linux 上：</p><p>On Linux:</p>
+<ul>
+<li class="translate-text">当受进程范围的关联掩码限制或受 cgroup 限制影响时，它可能会高估可用的并行量。</li><li>It may overcount the amount of parallelism available when limited by a
+process-wide affinity mask, or when affected by cgroup limits.</li>
+</ul>
+<p class="translate-text">在所有目标上：</p><p>On all targets:</p>
+<ul>
+<li class="translate-text">在具有 CPU 使用限制的 VM 中运行时（例如，过度使用的主机），它可能会高估可用的并行量。</li><li>It may overcount the amount of parallelism available when running in a VM
+with CPU usage limits (e.g. an overcommitted host).</li>
+</ul>
+<h2 id="errors" class="section-header"><a href="#errors">Errors</a></h2>
+<p class="translate-text">此函数将但不限于在以下情况下返回错误：</p><p>This function will, but is not limited to, return errors in the following
+cases:</p>
+<ul>
+<li class="translate-text">如果目标平台的并行量未知。</li><li>If the amount of parallelism is not known for the target platform.</li>
+<li class="translate-text">如果程序没有权限查询可用的并行量。</li><li>If the program lacks permission to query the amount of parallelism made
+available to it.</li>
+</ul>
+<h2 id="examples" class="section-header"><a href="#examples">Examples</a></h2>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="attribute">#![<span class="ident">feature</span>(<span class="ident">available_parallelism</span>)]</span>
+<span class="kw">use</span> <span class="ident">std</span>::{<span class="ident">io</span>, <span class="ident">thread</span>};
+
+<span class="kw">fn</span> <span class="ident">main</span>() -&gt; <span class="ident">io::Result</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+    <span class="kw">let</span> <span class="ident">count</span> <span class="op">=</span> <span class="ident">thread::available_parallelism</span>()<span class="question-mark">?</span>.<span class="ident">get</span>();
+    <span class="macro">assert!</span>(<span class="ident">count</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">1_usize</span>);
+    <span class="prelude-val">Ok</span>(())
+}</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(dead_code)%5D%0A%23!%5Bfeature(available_parallelism)%5D%0Ause%20std%3A%3A%7Bio%2C%20thread%7D%3B%0A%0Afn%20main()%20-%3E%20io%3A%3AResult%3C()%3E%20%7B%0A%20%20%20%20let%20count%20%3D%20thread%3A%3Aavailable_parallelism()%3F.get()%3B%0A%20%20%20%20assert!(count%20%3E%3D%201_usize)%3B%0A%20%20%20%20Ok(())%0A%7D&amp;version=nightly&amp;edition=2018">Run</a></div>
+</div></details></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="std" data-search-index-js="../../search-index1.58.0.js" data-search-js="../../search1.58.0.js"></div>
+</body></html>

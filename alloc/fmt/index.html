@@ -1,32 +1,35 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Utilities for formatting and printing `String`s."><meta name="keywords" content="rust, rustlang, rust-lang, fmt"><title>alloc::fmt - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize1.56.1.css"><link rel="stylesheet" type="text/css" href="../../rustdoc1.56.1.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light1.56.1.css" id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark1.56.1.css" disabled=""><link rel="stylesheet" type="text/css" href="../../ayu1.56.1.css" disabled=""><script id="default-settings"></script><script src="../../storage1.56.1.js"></script><script src="../../crates1.56.1.js"></script><noscript><link rel="stylesheet" href="../../noscript1.56.1.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x161.56.1.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x321.56.1.png"><link rel="icon" type="image/svg+xml" href="../../favicon1.56.1.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow1.56.1.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../alloc/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo1.56.1.png' alt='logo'></div></a><h2 class="location">Module fmt</h2><div class="sidebar-elems"><div class="block items"><ul><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><div id="sidebar-vars" data-name="fmt" data-ty="mod" data-relpath="./"></div><script defer="" src="./sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush1.56.1.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" disabled="" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel1.56.1.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Module <a href="../index.html">alloc</a>::<wbr><a class="mod" href="#">fmt</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../clipboard1.56.1.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span class="since" title="Stable since Rust version 1.0.0">1.0.0</span><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/alloc/fmt.rs.html#1-585" title="goto source code">[src]</a></span></h1><details class="rustdoc-toggle top-doc" open=""><summary class="hideme"><span>Expand description</span></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/details[1]/div[1]" istranslationnode="true" main_mp="YW1sbmc/PmNtdTo7aWpg"><p class="translate-text">格式化和打印字符串的实用程序。</p><p>Utilities for formatting and printing <code>String</code>s.</p>
-<p class="translate-text">该模块包含对格式的运行时支持！ 语法扩展。 该宏在编译器中实现以发出对该模块的调用，以便在运行时将参数格式化为字符串。</p><p>This module contains the runtime support for the <a href="../macro.format.html"><code>format!</code></a> syntax extension.
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Utilities for formatting and printing `String`s."><meta name="keywords" content="rust, rustlang, rust-lang, fmt"><title>alloc::fmt - Rust</title><link rel="stylesheet" type="text/css" href="../../normalize1.58.0.css"><link rel="stylesheet" type="text/css" href="../../rustdoc1.58.0.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../light1.58.0.css" id="themeStyle"><link rel="stylesheet" type="text/css" href="../../dark1.58.0.css" disabled=""><link rel="stylesheet" type="text/css" href="../../ayu1.58.0.css" disabled=""><script id="default-settings"></script><script src="../../storage1.58.0.js"></script><script src="../../crates1.58.0.js"></script><script defer="" src="../../main1.58.0.js"></script>
+    <noscript><link rel="stylesheet" href="../../noscript1.58.0.css"></noscript><link rel="alternate icon" type="image/png" href="../../favicon-16x161.58.0.png"><link rel="alternate icon" type="image/png" href="../../favicon-32x321.58.0.png"><link rel="icon" type="image/svg+xml" href="../../favicon1.58.0.svg"><style type="text/css">#crate-search{background-image:url("../../down-arrow1.58.0.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu" role="button">&#9776;</div><a href='../../alloc/index.html'><div class='logo-container rust-logo'><img src='../../rust-logo1.58.0.png' alt='logo'></div></a><h2 class="location">Module fmt</h2><div class="sidebar-elems"><div class="block items"><ul><li><a href="#macros">Macros</a></li><li><a href="#structs">Structs</a></li><li><a href="#enums">Enums</a></li><li><a href="#traits">Traits</a></li><li><a href="#functions">Functions</a></li><li><a href="#types">Type Definitions</a></li></ul></div><div id="sidebar-vars" data-name="fmt" data-ty="mod" data-relpath="./"></div><script defer="" src="./sidebar-items.js"></script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!" aria-haspopup="menu" title="themes"><img width="18" height="18" alt="Pick another theme!" src="../../brush1.58.0.svg"></button><div id="theme-choices" role="menu"></div></div><nav class="sub"><form class="search-form"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><button type="button" id="help-button" title="help">?</button><a id="settings-menu" href="../../settings.html" title="settings"><img width="18" height="18" alt="Change settings" src="../../wheel1.58.0.svg"></a></div></form></nav><section id="main" class="content"><h1 class="fqn"><span class="in-band">Module <a href="../index.html">alloc</a>::<wbr><a class="mod" href="#">fmt</a><button id="copy-path" onclick="copy_path(this)" title="Copy item path to clipboard"><img src="../../clipboard1.58.0.svg" width="19" height="18" alt="Copy item path"></button></span><span class="out-of-band"><span class="since" title="Stable since Rust version 1.0.0">1.0.0</span><span id="render-detail"><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class="inner">&#x2212;</span>]</a></span><a class="srclink" href="../../src/alloc/fmt.rs.html#1-599" title="goto source code">[src]</a></span></h1><details class="rustdoc-toggle top-doc" open=""><summary class="hideme"><span>Expand description</span></summary><div class="docblock" xpath="/html[1]/body[1]/section[1]/details[1]/div[1]" istranslationnode="true" main_mp="YW1sbmc/PmNtdTo7aWpg"><p class="translate-text">用于格式化和打印字符串的实用程序。</p><p>Utilities for formatting and printing <code>String</code>s.</p>
+<p class="translate-text">该模块包含对“格式！”的运行时支持。 语法扩展。 该宏在编译器中实现以发出对该模块的调用，以便在运行时将参数格式化为字符串。</p><p>This module contains the runtime support for the <a href="../macro.format.html" title="format!"><code>format!</code></a> syntax extension.
 This macro is implemented in the compiler to emit calls to this module in
 order to format arguments at runtime into strings.</p>
-<h1 id="usage" class="section-header"><a href="#usage">Usage</a></h1>
-<p class="translate-text">格式！ 宏旨在让那些来自 C 的 printf/fprintf 函数或 Python 的 str.format 函数的人熟悉。</p><p>The <a href="../macro.format.html"><code>format!</code></a> macro is intended to be familiar to those coming from C’s
+<h2 id="usage" class="section-header"><a href="#usage">Usage</a></h2>
+<p class="translate-text">格式！” 宏旨在让那些来自 C 的 `printf`/`fprintf` 函数或 Python 的 `str.format` 函数的人熟悉。</p><p>The <a href="../macro.format.html" title="format!"><code>format!</code></a> macro is intended to be familiar to those coming from C’s
 <code>printf</code>/<code>fprintf</code> functions or Python’s <code>str.format</code> function.</p>
-<p class="translate-text">格式的一些例子！ 扩展名是：</p><p>Some examples of the <a href="../macro.format.html"><code>format!</code></a> extension are:</p>
+<p class="translate-text">“格式！”的一些示例 扩展名是：</p><p>Some examples of the <a href="../macro.format.html" title="format!"><code>format!</code></a> extension are:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">format!</span>(<span class="string">&quot;Hello&quot;</span>);                 <span class="comment">// =&gt; &quot;Hello&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;Hello, {}!&quot;</span>, <span class="string">&quot;world&quot;</span>);   <span class="comment">// =&gt; &quot;Hello, world!&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;The number is {}&quot;</span>, <span class="number">1</span>);   <span class="comment">// =&gt; &quot;The number is 1&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, (<span class="number">3</span>, <span class="number">4</span>));          <span class="comment">// =&gt; &quot;(3, 4)&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;{value}&quot;</span>, <span class="ident">value</span><span class="op">=</span><span class="number">4</span>);      <span class="comment">// =&gt; &quot;4&quot;</span>
+<span class="kw">let</span> <span class="ident">people</span> <span class="op">=</span> <span class="string">&quot;Rustaceans&quot;</span>;
+<span class="macro">format!</span>(<span class="string">&quot;Hello {people}!&quot;</span>);       <span class="comment">// =&gt; &quot;Hello Rustaceans!&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;{} {}&quot;</span>, <span class="number">1</span>, <span class="number">2</span>);           <span class="comment">// =&gt; &quot;1 2&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;{:04}&quot;</span>, <span class="number">42</span>);             <span class="comment">// =&gt; &quot;0042&quot; with leading zeros</span>
 <span class="macro">format!</span>(<span class="string">&quot;{:#?}&quot;</span>, (<span class="number">100</span>, <span class="number">200</span>));     <span class="comment">// =&gt; &quot;(</span>
                                   <span class="comment">//       100,</span>
                                   <span class="comment">//       200,</span>
-                                  <span class="comment">//     )&quot;</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aformat!(%22Hello%22)%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%22Hello%22%0Aformat!(%22Hello%2C%20%7B%7D!%22%2C%20%22world%22)%3B%20%20%20%2F%2F%20%3D%3E%20%22Hello%2C%20world!%22%0Aformat!(%22The%20number%20is%20%7B%7D%22%2C%201)%3B%20%20%20%2F%2F%20%3D%3E%20%22The%20number%20is%201%22%0Aformat!(%22%7B%3A%3F%7D%22%2C%20(3%2C%204))%3B%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%22(3%2C%204)%22%0Aformat!(%22%7Bvalue%7D%22%2C%20value%3D4)%3B%20%20%20%20%20%20%2F%2F%20%3D%3E%20%224%22%0Aformat!(%22%7B%7D%20%7B%7D%22%2C%201%2C%202)%3B%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%221%202%22%0Aformat!(%22%7B%3A04%7D%22%2C%2042)%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%220042%22%20with%20leading%20zeros%0Aformat!(%22%7B%3A%23%3F%7D%22%2C%20(100%2C%20200))%3B%20%20%20%20%20%2F%2F%20%3D%3E%20%22(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%20%20%20%20%20%20100%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%20%20%20%20%20%20200%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%20%20%20%20)%22%0A%7D&amp;edition=2018">Run</a></div>
+                                  <span class="comment">//     )&quot;</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aformat!(%22Hello%22)%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%22Hello%22%0Aformat!(%22Hello%2C%20%7B%7D!%22%2C%20%22world%22)%3B%20%20%20%2F%2F%20%3D%3E%20%22Hello%2C%20world!%22%0Aformat!(%22The%20number%20is%20%7B%7D%22%2C%201)%3B%20%20%20%2F%2F%20%3D%3E%20%22The%20number%20is%201%22%0Aformat!(%22%7B%3A%3F%7D%22%2C%20(3%2C%204))%3B%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%22(3%2C%204)%22%0Aformat!(%22%7Bvalue%7D%22%2C%20value%3D4)%3B%20%20%20%20%20%20%2F%2F%20%3D%3E%20%224%22%0Alet%20people%20%3D%20%22Rustaceans%22%3B%0Aformat!(%22Hello%20%7Bpeople%7D!%22)%3B%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%22Hello%20Rustaceans!%22%0Aformat!(%22%7B%7D%20%7B%7D%22%2C%201%2C%202)%3B%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%221%202%22%0Aformat!(%22%7B%3A04%7D%22%2C%2042)%3B%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%220042%22%20with%20leading%20zeros%0Aformat!(%22%7B%3A%23%3F%7D%22%2C%20(100%2C%20200))%3B%20%20%20%20%20%2F%2F%20%3D%3E%20%22(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%20%20%20%20%20%20100%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%20%20%20%20%20%20200%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2F%2F%20%20%20%20%20)%22%0A%7D&amp;edition=2018">Run</a></div>
 <p class="translate-text">从这些可以看出，第一个参数是一个格式字符串。 编译器要求它是字符串文字； 它不能是传入的变量（为了执行有效性检查）。 然后编译器将解析格式字符串并确定提供的参数列表是否适合传递给此格式字符串。</p><p>From these, you can see that the first argument is a format string. It is
 required by the compiler for this to be a string literal; it cannot be a
 variable passed in (in order to perform validity checking). The compiler
 will then parse the format string and determine if the list of arguments
 provided is suitable to pass to this format string.</p>
-<p class="translate-text">要将单个值转换为字符串，请使用 to_string 方法。 这将使用显示格式Trait。</p><p>To convert a single value to a string, use the <a href="../string/trait.ToString.html"><code>to_string</code></a> method. This
+<p class="translate-text">要将单个值转换为字符串，请使用“to_string”方法。 这将使用“显示”格式Trait。</p><p>To convert a single value to a string, use the <a href="../string/trait.ToString.html#tymethod.to_string" title="ToString::to_string"><code>to_string</code></a> method. This
 will use the <a href="trait.Display.html" title="Display"><code>Display</code></a> formatting trait.</p>
-<h2 id="positional-parameters" class="section-header"><a href="#positional-parameters">Positional parameters</a></h2>
-<p class="translate-text">每个格式化参数都可以指定它引用的值参数，如果省略，则假定它是“下一个参数”。 例如，格式字符串 {} {} {} 将采用三个参数，并且它们将按照给定的顺序进行格式化。 但是，格式字符串 {2} {1} {0} 会以相反的顺序格式化参数。</p><p>Each formatting argument is allowed to specify which value argument it’s
+<h3 id="positional-parameters" class="section-header"><a href="#positional-parameters">Positional parameters</a></h3>
+<p class="translate-text">每个格式化参数都可以指定它引用的值参数，如果省略，则假定它是“下一个参数”。 例如，格式字符串 `{} {} {}` 将采用三个参数，并且它们将按照给定的顺序进行格式化。 但是，格式字符串 `{2} {1} {0}` 会以相反的顺序格式化参数。</p><p>Each formatting argument is allowed to specify which value argument it’s
 referencing, and if omitted it is assumed to be “the next argument”. For
 example, the format string <code>{} {} {}</code> would take three parameters, and they
 would be formatted in the same order as they’re given. The format string
@@ -37,7 +40,7 @@ iterator over the argument. Each time a “next argument” specifier is seen,
 the iterator advances. This leads to behavior like this:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">format!</span>(<span class="string">&quot;{1} {} {0} {}&quot;</span>, <span class="number">1</span>, <span class="number">2</span>); <span class="comment">// =&gt; &quot;2 1 1 2&quot;</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aformat!(%22%7B1%7D%20%7B%7D%20%7B0%7D%20%7B%7D%22%2C%201%2C%202)%3B%20%2F%2F%20%3D%3E%20%222%201%201%202%22%0A%7D&amp;edition=2018">Run</a></div>
-<p class="translate-text">在看到第一个 {} 时，参数上的内部迭代器尚未前进，因此它会打印第一个参数。 然后在到达第二个 {} 时，迭代器前进到第二个参数。 本质上，显式命名其参数的参数不会影响未根据位置说明符命名参数的参数。</p><p>The internal iterator over the argument has not been advanced by the time
+<p class="translate-text">在看到第一个 `{}` 时，参数的内部迭代器尚未前进，因此它会打印第一个参数。 然后在到达第二个“{}”时，迭代器前进到第二个参数。 本质上，显式命名其参数的参数不会影响未根据位置说明符命名参数的参数。</p><p>The internal iterator over the argument has not been advanced by the time
 the first <code>{}</code> is seen, so it prints the first argument. Then upon reaching
 the second <code>{}</code>, the iterator has advanced forward to the second argument.
 Essentially, parameters that explicitly name their argument do not affect
@@ -45,67 +48,79 @@ parameters that do not name an argument in terms of positional specifiers.</p>
 <p class="translate-text">格式字符串需要使用其所有参数，否则是编译时错误。 您可以在格式字符串中多次引用同一个参数。</p><p>A format string is required to use all of its arguments, otherwise it is a
 compile-time error. You may refer to the same argument more than once in the
 format string.</p>
-<h2 id="named-parameters" class="section-header"><a href="#named-parameters">Named parameters</a></h2>
-<p class="translate-text">Rust 本身没有类似 Python 的函数命名参数，而是格式！ 宏是一种语法扩展，允许它利用命名参数。 命名参数列在参数列表的末尾，语法如下：</p><p>Rust itself does not have a Python-like equivalent of named parameters to a
-function, but the <a href="../macro.format.html"><code>format!</code></a> macro is a syntax extension that allows it to
+<h3 id="named-parameters" class="section-header"><a href="#named-parameters">Named parameters</a></h3>
+<p class="translate-text">Rust 本身没有类似 Python 的函数命名参数，而是“格式！” 宏是一种语法扩展，允许它利用命名参数。 命名参数列在参数列表的末尾，语法如下：</p><p>Rust itself does not have a Python-like equivalent of named parameters to a
+function, but the <a href="../macro.format.html" title="format!"><code>format!</code></a> macro is a syntax extension that allows it to
 leverage named parameters. Named parameters are listed at the end of the
 argument list and have the syntax:</p>
 <div class="example-wrap"><pre class="language-text"><code>identifier &#39;=&#39; expression</code></pre></div>
-<p class="translate-text">比如下面的格式！ 表达式都使用命名参数：</p><p>For example, the following <a href="../macro.format.html"><code>format!</code></a> expressions all use named argument:</p>
+<p class="translate-text">比如下面的“格式！” 表达式都使用命名参数：</p><p>For example, the following <a href="../macro.format.html" title="format!"><code>format!</code></a> expressions all use named argument:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">format!</span>(<span class="string">&quot;{argument}&quot;</span>, <span class="ident">argument</span> <span class="op">=</span> <span class="string">&quot;test&quot;</span>);   <span class="comment">// =&gt; &quot;test&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;{name} {}&quot;</span>, <span class="number">1</span>, <span class="ident">name</span> <span class="op">=</span> <span class="number">2</span>);          <span class="comment">// =&gt; &quot;2 1&quot;</span>
 <span class="macro">format!</span>(<span class="string">&quot;{a} {c} {b}&quot;</span>, <span class="ident">a</span><span class="op">=</span><span class="string">&quot;a&quot;</span>, <span class="ident">b</span><span class="op">=</span><span class="string">&#39;b&#39;</span>, <span class="ident">c</span><span class="op">=</span><span class="number">3</span>);  <span class="comment">// =&gt; &quot;a 3 b&quot;</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aformat!(%22%7Bargument%7D%22%2C%20argument%20%3D%20%22test%22)%3B%20%20%20%2F%2F%20%3D%3E%20%22test%22%0Aformat!(%22%7Bname%7D%20%7B%7D%22%2C%201%2C%20name%20%3D%202)%3B%20%20%20%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%222%201%22%0Aformat!(%22%7Ba%7D%20%7Bc%7D%20%7Bb%7D%22%2C%20a%3D%22a%22%2C%20b%3D'b'%2C%20c%3D3)%3B%20%20%2F%2F%20%3D%3E%20%22a%203%20b%22%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">如果命名参数没有出现在参数列表中，`format!` 将引用当前范围内具有该名称的变量。</p><p>If a named parameter does not appear in the argument list, <code>format!</code> will
+reference a variable with that name in the current scope.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let</span> <span class="ident">argument</span> <span class="op">=</span> <span class="number">2</span> <span class="op">+</span> <span class="number">2</span>;
+<span class="macro">format!</span>(<span class="string">&quot;{argument}&quot;</span>);   <span class="comment">// =&gt; &quot;4&quot;</span>
+
+<span class="kw">fn</span> <span class="ident">make_string</span>(<span class="ident">a</span>: <span class="ident">u32</span>, <span class="ident">b</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) -&gt; <span class="ident">String</span> {
+    <span class="macro">format!</span>(<span class="string">&quot;{b} {a}&quot;</span>)
+}
+<span class="ident">make_string</span>(<span class="number">927</span>, <span class="string">&quot;label&quot;</span>); <span class="comment">// =&gt; &quot;label 927&quot;</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Alet%20argument%20%3D%202%20%2B%202%3B%0Aformat!(%22%7Bargument%7D%22)%3B%20%20%20%2F%2F%20%3D%3E%20%224%22%0A%0Afn%20make_string(a%3A%20u32%2C%20b%3A%20%26str)%20-%3E%20String%20%7B%0A%20%20%20%20format!(%22%7Bb%7D%20%7Ba%7D%22)%0A%7D%0Amake_string(927%2C%20%22label%22)%3B%20%2F%2F%20%3D%3E%20%22label%20927%22%0A%7D&amp;edition=2018">Run</a></div>
 <p class="translate-text">将位置参数（没有名称的参数）放在有名称的参数之后是无效的。 与位置参数一样，提供格式字符串未使用的命名参数是无效的。</p><p>It is not valid to put positional parameters (those without names) after
 arguments that have names. Like with positional parameters, it is not
 valid to provide named parameters that are unused by the format string.</p>
-<h1 id="formatting-parameters" class="section-header"><a href="#formatting-parameters">Formatting Parameters</a></h1>
-<p class="translate-text">每个被格式化的参数都可以通过一些格式化参数进行转换（对应于语法中的 format_spec）。 这些参数会影响正在格式化的字符串表示形式。</p><p>Each argument being formatted can be transformed by a number of formatting
+<h2 id="formatting-parameters" class="section-header"><a href="#formatting-parameters">Formatting Parameters</a></h2>
+<p class="translate-text">每个被格式化的参数都可以通过一些格式化参数进行转换（对应于“语法”中的 `format_spec`）。 这些参数会影响正在格式化的字符串表示形式。</p><p>Each argument being formatted can be transformed by a number of formatting
 parameters (corresponding to <code>format_spec</code> in <a href="#syntax">the syntax</a>). These
 parameters affect the string representation of what’s being formatted.</p>
-<h2 id="width" class="section-header"><a href="#width">Width</a></h2>
+<h3 id="width" class="section-header"><a href="#width">Width</a></h3>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// All of these print &quot;Hello x    !&quot;</span>
 <span class="macro">println!</span>(<span class="string">&quot;Hello {:5}!&quot;</span>, <span class="string">&quot;x&quot;</span>);
 <span class="macro">println!</span>(<span class="string">&quot;Hello {:1$}!&quot;</span>, <span class="string">&quot;x&quot;</span>, <span class="number">5</span>);
 <span class="macro">println!</span>(<span class="string">&quot;Hello {1:0$}!&quot;</span>, <span class="number">5</span>, <span class="string">&quot;x&quot;</span>);
-<span class="macro">println!</span>(<span class="string">&quot;Hello {:width$}!&quot;</span>, <span class="string">&quot;x&quot;</span>, <span class="ident">width</span> <span class="op">=</span> <span class="number">5</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%2F%2F%20All%20of%20these%20print%20%22Hello%20x%20%20%20%20!%22%0Afn%20main()%20%7B%0Aprintln!(%22Hello%20%7B%3A5%7D!%22%2C%20%22x%22)%3B%0Aprintln!(%22Hello%20%7B%3A1%24%7D!%22%2C%20%22x%22%2C%205)%3B%0Aprintln!(%22Hello%20%7B1%3A0%24%7D!%22%2C%205%2C%20%22x%22)%3B%0Aprintln!(%22Hello%20%7B%3Awidth%24%7D!%22%2C%20%22x%22%2C%20width%20%3D%205)%3B%0A%7D&amp;edition=2018">Run</a></div>
+<span class="macro">println!</span>(<span class="string">&quot;Hello {:width$}!&quot;</span>, <span class="string">&quot;x&quot;</span>, <span class="ident">width</span> <span class="op">=</span> <span class="number">5</span>);
+<span class="kw">let</span> <span class="ident">width</span> <span class="op">=</span> <span class="number">5</span>;
+<span class="macro">println!</span>(<span class="string">&quot;Hello {:width$}!&quot;</span>, <span class="string">&quot;x&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%2F%2F%20All%20of%20these%20print%20%22Hello%20x%20%20%20%20!%22%0Afn%20main()%20%7B%0Aprintln!(%22Hello%20%7B%3A5%7D!%22%2C%20%22x%22)%3B%0Aprintln!(%22Hello%20%7B%3A1%24%7D!%22%2C%20%22x%22%2C%205)%3B%0Aprintln!(%22Hello%20%7B1%3A0%24%7D!%22%2C%205%2C%20%22x%22)%3B%0Aprintln!(%22Hello%20%7B%3Awidth%24%7D!%22%2C%20%22x%22%2C%20width%20%3D%205)%3B%0Alet%20width%20%3D%205%3B%0Aprintln!(%22Hello%20%7B%3Awidth%24%7D!%22%2C%20%22x%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
 <p class="translate-text">这是格式应该占用的“最小宽度”的参数。 如果值的字符串没有填充这么多字符，则填充/对齐指定的填充将用于占用所需的空间（见下文）。</p><p>This is a parameter for the “minimum width” that the format should take up.
 If the value’s string does not fill up this many characters, then the
 padding specified by fill/alignment will be used to take up the required
 space (see below).</p>
-<p class="translate-text">宽度的值也可以通过添加后缀 $ 来作为参数列表中的 usize 提供，表示第二个参数是指定宽度的 usize。</p><p>The value for the width can also be provided as a <a href="https://doc.rust-lang.org/1.56.1/std/primitive.usize.html" title="usize"><code>usize</code></a> in the list of
+<p class="translate-text">宽度的值也可以通过添加后缀`$`在参数列表中作为“usize”提供，表示第二个参数是指定宽度的“usize”。</p><p>The value for the width can also be provided as a <a href="../../core/primitive.usize.html" title="usize"><code>usize</code></a> in the list of
 parameters by adding a postfix <code>$</code>, indicating that the second argument is
-a <a href="https://doc.rust-lang.org/1.56.1/std/primitive.usize.html" title="usize"><code>usize</code></a> specifying the width.</p>
+a <a href="../../core/primitive.usize.html" title="usize"><code>usize</code></a> specifying the width.</p>
 <p class="translate-text">使用美元语法引用参数不会影响“下一个参数”计数器，因此按位置引用参数或使用命名参数通常是个好主意。</p><p>Referring to an argument with the dollar syntax does not affect the “next
 argument” counter, so it’s usually a good idea to refer to arguments by
 position, or use named arguments.</p>
-<h2 id="fillalignment" class="section-header"><a href="#fillalignment">Fill/Alignment</a></h2>
+<h3 id="fillalignment" class="section-header"><a href="#fillalignment">Fill/Alignment</a></h3>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {:&lt;5}!&quot;</span>, <span class="string">&quot;x&quot;</span>),  <span class="string">&quot;Hello x    !&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {:-&lt;5}!&quot;</span>, <span class="string">&quot;x&quot;</span>), <span class="string">&quot;Hello x----!&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {:^5}!&quot;</span>, <span class="string">&quot;x&quot;</span>),  <span class="string">&quot;Hello   x  !&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {:&gt;5}!&quot;</span>, <span class="string">&quot;x&quot;</span>),  <span class="string">&quot;Hello     x!&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aassert_eq!(format!(%22Hello%20%7B%3A%3C5%7D!%22%2C%20%22x%22)%2C%20%20%22Hello%20x%20%20%20%20!%22)%3B%0Aassert_eq!(format!(%22Hello%20%7B%3A-%3C5%7D!%22%2C%20%22x%22)%2C%20%22Hello%20x----!%22)%3B%0Aassert_eq!(format!(%22Hello%20%7B%3A%5E5%7D!%22%2C%20%22x%22)%2C%20%20%22Hello%20%20%20x%20%20!%22)%3B%0Aassert_eq!(format!(%22Hello%20%7B%3A%3E5%7D!%22%2C%20%22x%22)%2C%20%20%22Hello%20%20%20%20%20x!%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
-<p class="translate-text">可选的填充字符和对齐方式通常与宽度参数一起提供。 它必须在宽度之前定义，就在:之后。 这表明如果被格式化的值小于宽度，则会在其周围打印一些额外的字符。 对于不同的对齐方式，填充有以下变体：</p><p>The optional fill character and alignment is provided normally in conjunction with the
+<p class="translate-text">可选的填充字符和对齐方式通常与“width”参数一起提供。 它必须在 `width` 之前定义，紧跟在 `:` 之后。 这表明如果被格式化的值小于 `width` 一些额外的字符将被打印在它周围。 对于不同的对齐方式，填充有以下变体：</p><p>The optional fill character and alignment is provided normally in conjunction with the
 <a href="#width"><code>width</code></a> parameter. It must be defined before <code>width</code>, right after the <code>:</code>.
 This indicates that if the value being formatted is smaller than
 <code>width</code> some extra characters will be printed around it.
 Filling comes in the following variants for different alignments:</p>
 <ul>
-<li class="translate-text">[fill]< - 参数在宽度列中左对齐</li><li><code>[fill]&lt;</code> - the argument is left-aligned in <code>width</code> columns</li>
-<li class="translate-text">[fill]^ - 参数在宽度列中居中对齐</li><li><code>[fill]^</code> - the argument is center-aligned in <code>width</code> columns</li>
-<li class="translate-text">[fill]> - 参数在宽度列中右对齐</li><li><code>[fill]&gt;</code> - the argument is right-aligned in <code>width</code> columns</li>
+<li class="translate-text">`[fill]<` - 参数在 `width` 列中左对齐</li><li><code>[fill]&lt;</code> - the argument is left-aligned in <code>width</code> columns</li>
+<li class="translate-text">`[fill]^` - 参数在 `width` 列中居中对齐</li><li><code>[fill]^</code> - the argument is center-aligned in <code>width</code> columns</li>
+<li class="translate-text">`[fill]>` - 参数在 `width` 列中右对齐</li><li><code>[fill]&gt;</code> - the argument is right-aligned in <code>width</code> columns</li>
 </ul>
-<p class="translate-text">非数字的默认填充/对齐方式是空格并左对齐。 数字格式化程序的默认值也是一个空格字符，但右对齐。 如果为数字指定了 0 标志（见下文），则隐式填充字符为 0。</p><p>The default <a href="#fillalignment">fill/alignment</a> for non-numerics is a space and
+<p class="translate-text">非数字的默认“填充/对齐”是空格并左对齐。 数字格式化程序的默认值也是一个空格字符，但右对齐。 如果为数字指定了“0”标志（见下文），则隐式填充字符为“0”。</p><p>The default <a href="#fillalignment">fill/alignment</a> for non-numerics is a space and
 left-aligned. The
 default for numeric formatters is also a space character but with right-alignment. If
 the <code>0</code> flag (see below) is specified for numerics, then the implicit fill character is
 <code>0</code>.</p>
-<p class="translate-text">请注意，某些类型可能无法实现对齐。 特别是，它通常不会为 Debug Trait实现。 确保应用填充的一个好方法是格式化您的输入，然后填充这个结果字符串以获得您的输出：</p><p>Note that alignment might not be implemented by some types. In particular, it
+<p class="translate-text">请注意，某些类型可能无法实现对齐。 特别是，它通常不会为 `Debug` Trait实现。 确保应用填充的一个好方法是格式化您的输入，然后填充这个结果字符串以获得您的输出：</p><p>Note that alignment might not be implemented by some types. In particular, it
 is not generally implemented for the <code>Debug</code> trait.  A good way to ensure
 padding is applied is to format your input, then pad this resulting string
 to obtain your output:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">println!</span>(<span class="string">&quot;Hello {:^15}!&quot;</span>, <span class="macro">format!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="prelude-val">Some</span>(<span class="string">&quot;hi&quot;</span>))); <span class="comment">// =&gt; &quot;Hello   Some(&quot;hi&quot;)   !&quot;</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aprintln!(%22Hello%20%7B%3A%5E15%7D!%22%2C%20format!(%22%7B%3A%3F%7D%22%2C%20Some(%22hi%22)))%3B%20%2F%2F%20%3D%3E%20%22Hello%20%20%20Some(%22hi%22)%20%20%20!%22%0A%7D&amp;edition=2018">Run</a></div>
-<h2 id="sign0" class="section-header"><a href="#sign0">Sign/<code>#</code>/<code>0</code></a></h2>
+<h3 id="sign0" class="section-header"><a href="#sign0">Sign/<code>#</code>/<code>0</code></a></h3>
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {:+}!&quot;</span>, <span class="number">5</span>), <span class="string">&quot;Hello +5!&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{:#x}!&quot;</span>, <span class="number">27</span>), <span class="string">&quot;0x1b!&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {:05}!&quot;</span>, <span class="number">5</span>),  <span class="string">&quot;Hello 00005!&quot;</span>);
@@ -113,22 +128,22 @@ to obtain your output:</p>
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{:#010x}!&quot;</span>, <span class="number">27</span>), <span class="string">&quot;0x0000001b!&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aassert_eq!(format!(%22Hello%20%7B%3A%2B%7D!%22%2C%205)%2C%20%22Hello%20%2B5!%22)%3B%0Aassert_eq!(format!(%22%7B%3A%23x%7D!%22%2C%2027)%2C%20%220x1b!%22)%3B%0Aassert_eq!(format!(%22Hello%20%7B%3A05%7D!%22%2C%205)%2C%20%20%22Hello%2000005!%22)%3B%0Aassert_eq!(format!(%22Hello%20%7B%3A05%7D!%22%2C%20-5)%2C%20%22Hello%20-0005!%22)%3B%0Aassert_eq!(format!(%22%7B%3A%23010x%7D!%22%2C%2027)%2C%20%220x0000001b!%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
 <p class="translate-text">这些都是改变格式化程序行为的标志。</p><p>These are all flags altering the behavior of the formatter.</p>
 <ul>
-<li class="translate-text">+ - 这适用于数字类型，表示应始终打印符号。 默认情况下从不打印正号，并且默认情况下仅对有符号值打印负号。 此标志表示应始终打印正确的符号（+ 或 -）。</li><li><code>+</code> - This is intended for numeric types and indicates that the sign
+<li class="translate-text">`+` - 这适用于数字类型，表示应始终打印符号。 默认情况下从不打印正号，并且默认情况下仅对有符号值打印负号。 此标志指示应始终打印正确的符号（`+` 或 `-`）。</li><li><code>+</code> - This is intended for numeric types and indicates that the sign
 should always be printed. Positive signs are never printed by
 default, and the negative sign is only printed by default for signed values.
 This flag indicates that the correct sign (<code>+</code> or <code>-</code>) should always be printed.</li>
-<li class="translate-text">- - 目前未使用</li><li><code>-</code> - Currently not used</li>
-<li class="translate-text"># - 此标志表示应使用“替代”打印形式。 替代形式是：</li><li><code>#</code> - This flag indicates that the “alternate” form of printing should
+<li class="translate-text">`-` - 当前未使用</li><li><code>-</code> - Currently not used</li>
+<li class="translate-text">`#` - 此标志指示应使用“替代”打印形式。 替代形式是：</li><li><code>#</code> - This flag indicates that the “alternate” form of printing should
 be used. The alternate forms are:
 <ul>
-<li class="translate-text">#? - 漂亮地打印调试格式（添加换行符和缩进）</li><li><code>#?</code> - pretty-print the <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> formatting (adds linebreaks and indentation)</li>
-<li class="translate-text">#x - 在参数前面加上 0x</li><li><code>#x</code> - precedes the argument with a <code>0x</code></li>
-<li class="translate-text">#X - 在参数前面加上 0x</li><li><code>#X</code> - precedes the argument with a <code>0x</code></li>
-<li class="translate-text">#b - 在参数前面加上 0b</li><li><code>#b</code> - precedes the argument with a <code>0b</code></li>
-<li class="translate-text">#o - 在参数前面加上 0o</li><li><code>#o</code> - precedes the argument with a <code>0o</code></li>
+<li class="translate-text">`#?` - 漂亮地打印“调试”格式（添加换行符和缩进）</li><li><code>#?</code> - pretty-print the <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> formatting (adds linebreaks and indentation)</li>
+<li class="translate-text">`#x` - 在参数前面加上 `0x`</li><li><code>#x</code> - precedes the argument with a <code>0x</code></li>
+<li class="translate-text">`#X` - 在参数前面加上 `0x`</li><li><code>#X</code> - precedes the argument with a <code>0x</code></li>
+<li class="translate-text">`#b` - 在参数前面加上 `0b`</li><li><code>#b</code> - precedes the argument with a <code>0b</code></li>
+<li class="translate-text">`#o` - 在参数前面加上 `0o`</li><li><code>#o</code> - precedes the argument with a <code>0o</code></li>
 </ul>
 </li>
-<li class="translate-text">0 - 这用于指示整数格式的宽度填充应该使用 0 字符完成并且可以识别符号。 像 {:08} 这样的格式会为整数 1 生成 00000001，而相同的格式会为整数 -1 生成 -0000001。 请注意，负面版本比正面版本少一个零。 请注意，填充零总是放在符号（如果有）之后和数字之前。 当与 # 标志一起使用时，适用类似的规则：在前缀之后但数字之前插入填充零。 前缀包含在总宽度中。</li><li><code>0</code> - This is used to indicate for integer formats that the padding to <code>width</code> should
+<li class="translate-text">`0` - 这用于指示对 `width` 的填充应该使用 `0` 字符以及符号感知的整数格式。 像 `{:08}` 这样的格式会为整数 `1` 生成 `00000001`，而相同的格式会为整数 `-1` 生成 `-0000001`。 请注意，负面版本比正面版本少一个零。 请注意，填充零总是放在符号（如果有）之后和数字之前。 当与 `#` 标志一起使用时，适用类似的规则：在前缀之后但数字之前插入填充零。 前缀包含在总宽度中。</li><li><code>0</code> - This is used to indicate for integer formats that the padding to <code>width</code> should
 both be done with a <code>0</code> character as well as be sign-aware. A format
 like <code>{:08}</code> would yield <code>00000001</code> for the integer <code>1</code>, while the
 same format would yield <code>-0000001</code> for the integer <code>-1</code>. Notice that
@@ -138,14 +153,14 @@ and before the digits. When used together with the <code>#</code> flag, a simila
 rule applies: padding zeros are inserted after the prefix but before
 the digits. The prefix is included in the total width.</li>
 </ul>
-<h2 id="precision" class="section-header"><a href="#precision">Precision</a></h2>
-<p class="translate-text">对于非数字类型，这可以被认为是“最大宽度”。 如果生成的字符串比这个宽度长，那么它会被截断到这么多字符，并且如果设置了这些参数，则使用适当的填充、对齐和宽度发出截断的值。</p><p>For non-numeric types, this can be considered a “maximum width”. If the resulting string is
+<h3 id="precision" class="section-header"><a href="#precision">Precision</a></h3>
+<p class="translate-text">对于非数字类型，这可以被认为是“最大宽度”。 如果生成的字符串比这个宽度长，那么它会被截断到这么多字符，并且如果设置了这些参数，则使用正确的 `fill`、`alignment` 和 `width` 发出截断值。</p><p>For non-numeric types, this can be considered a “maximum width”. If the resulting string is
 longer than this width, then it is truncated down to this many characters and that truncated
 value is emitted with proper <code>fill</code>, <code>alignment</code> and <code>width</code> if those parameters are set.</p>
 <p class="translate-text">对于整数类型，这将被忽略。</p><p>For integral types, this is ignored.</p>
 <p class="translate-text">对于浮点类型，这表示应打印小数点后的位数。</p><p>For floating-point types, this indicates how many digits after the decimal point should be
 printed.</p>
-<p class="translate-text">有三种可能的方法来指定所需的精度：</p><p>There are three possible ways to specify the desired <code>precision</code>:</p>
+<p class="translate-text">有三种可能的方式来指定所需的“精度”：</p><p>There are three possible ways to specify the desired <code>precision</code>:</p>
 <ol>
 <li class="translate-text">整数 .N：整数 N 本身就是精度。</li><li>
 <p>An integer <code>.N</code>:</p>
@@ -163,7 +178,7 @@ in this case, if one uses the format string <code>{&lt;arg&gt;:&lt;spec&gt;.*}</
 to the <em>value</em> to print, and the <code>precision</code> must come in the input preceding <code>&lt;arg&gt;</code>.</p>
 </li>
 </ol>
-<p class="translate-text">例如，以下调用都打印相同的东西 Hello x 是 0.01000：</p><p>For example, the following calls all print the same thing <code>Hello x is 0.01000</code>:</p>
+<p class="translate-text">例如，以下调用都打印相同的东西 `Hello x is 0.01000`：</p><p>For example, the following calls all print the same thing <code>Hello x is 0.01000</code>:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Hello {arg 0 (&quot;x&quot;)} is {arg 1 (0.01) with precision specified inline (5)}</span>
 <span class="macro">println!</span>(<span class="string">&quot;Hello {0} is {1:.5}&quot;</span>, <span class="string">&quot;x&quot;</span>, <span class="number">0.01</span>);
@@ -193,25 +208,25 @@ to the <em>value</em> to print, and the <code>precision</code> must come in the 
 <p class="translate-text">打印三个明显不同的东西：</p><p>print three significantly different things:</p>
 <div class="example-wrap"><pre class="language-text"><code>Hello, `1234.560` has 3 fractional digits
 Hello, `123` has 3 characters
-Hello, `     123` has 3 right-aligned characters</code></pre></div><h2 id="localization" class="section-header"><a href="#localization">Localization</a></h2>
+Hello, `     123` has 3 right-aligned characters</code></pre></div><h3 id="localization" class="section-header"><a href="#localization">Localization</a></h3>
 <p class="translate-text">在某些编程语言中，字符串格式化函数的行为取决于操作系统的区域设置。 Rust 标准库提供的格式函数没有任何语言环境的概念，并且无论用户配置如何，都会在所有系统上产生相同的结果。</p><p>In some programming languages, the behavior of string formatting functions
 depends on the operating system’s locale setting. The format functions
 provided by Rust’s standard library do not have any concept of locale and
 will produce the same results on all systems regardless of user
 configuration.</p>
-<p class="translate-text">例如，以下代码将始终打印 1.5，即使系统区域设置使用点以外的小数分隔符。</p><p>For example, the following code will always print <code>1.5</code> even if the system
+<p class="translate-text">例如，即使系统语言环境使用小数点分隔符而不是点，以下代码将始终打印“1.5”。</p><p>For example, the following code will always print <code>1.5</code> even if the system
 locale uses a decimal separator other than a dot.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">println!</span>(<span class="string">&quot;The value is {}&quot;</span>, <span class="number">1.5</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aprintln!(%22The%20value%20is%20%7B%7D%22%2C%201.5)%3B%0A%7D&amp;edition=2018">Run</a></div>
-<h1 id="escaping" class="section-header"><a href="#escaping">Escaping</a></h1>
-<p class="translate-text">文字字符 { 和 } 可以通过在它们前面加上相同的字符来包含在字符串中。 例如，{ 字符用 {{ 转义，} 字符用 }} 转义。</p><p>The literal characters <code>{</code> and <code>}</code> may be included in a string by preceding
+<h2 id="escaping" class="section-header"><a href="#escaping">Escaping</a></h2>
+<p class="translate-text">文字字符 `{` 和 `}` 可以通过在它们前面加上相同的字符来包含在字符串中。 例如，`{` 字符用 `{{` 转义，`}` 字符用 `}}` 转义。</p><p>The literal characters <code>{</code> and <code>}</code> may be included in a string by preceding
 them with the same character. For example, the <code>{</code> character is escaped with
 <code>{{</code> and the <code>}</code> character is escaped with <code>}}</code>.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;Hello {{}}&quot;</span>), <span class="string">&quot;Hello {}&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{{ Hello&quot;</span>), <span class="string">&quot;{ Hello&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aassert_eq!(format!(%22Hello%20%7B%7B%7D%7D%22)%2C%20%22Hello%20%7B%7D%22)%3B%0Aassert_eq!(format!(%22%7B%7B%20Hello%22)%2C%20%22%7B%20Hello%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
-<h1 id="syntax" class="section-header"><a href="#syntax">Syntax</a></h1>
-<p class="translate-text">总而言之，在这里您可以找到格式字符串的完整语法。 所使用的格式化语言的语法取自其他语言，所以应该不会太陌生。 参数使用类似 Python 的语法进行格式化，这意味着参数被 {} 而不是类似 C 的 % 包围。 格式化语法的实际语法是：</p><p>To summarize, here you can find the full grammar of format strings.
+<h2 id="syntax" class="section-header"><a href="#syntax">Syntax</a></h2>
+<p class="translate-text">总而言之，在这里您可以找到格式字符串的完整语法。 所使用的格式化语言的语法取自其他语言，所以应该不会太陌生。 参数使用类似 Python 的语法进行格式化，这意味着参数被 `{}` 包围，而不是类似 C 的 `%`。 格式化语法的实际语法是：</p><p>To summarize, here you can find the full grammar of format strings.
 The syntax for the formatting language used is drawn from other languages,
 so it should not be too alien. Arguments are formatted with Python-like
 syntax, meaning that arguments are surrounded by <code>{}</code> instead of the C-like
@@ -230,26 +245,26 @@ precision := count | &#39;*&#39;
 type := &#39;&#39; | &#39;?&#39; | &#39;x?&#39; | &#39;X?&#39; | identifier
 count := parameter | integer
 parameter := argument &#39;$&#39;</code></pre></div>
-<p class="translate-text">在上述语法中，文本不得包含任何“{”或“}”字符。</p><p>In the above grammar, <code>text</code> must not contain any <code>'{'</code> or <code>'}'</code> characters.</p>
-<h1 id="formatting-traits" class="section-header"><a href="#formatting-traits">Formatting traits</a></h1>
-<p class="translate-text">当请求将参数格式化为特定类型时，您实际上是在请求将参数归因于特定Trait。 这允许通过 {:x} 格式化多个实际类型（如 i8 和 isize）。 当前类型到Trait的映射是：</p><p>When requesting that an argument be formatted with a particular type, you
+<p class="translate-text">在上述语法中，`text` 不能包含任何 `'{'` 或 `'}'` 字符。</p><p>In the above grammar, <code>text</code> must not contain any <code>'{'</code> or <code>'}'</code> characters.</p>
+<h2 id="formatting-traits" class="section-header"><a href="#formatting-traits">Formatting traits</a></h2>
+<p class="translate-text">当请求将参数格式化为特定类型时，您实际上是在请求将参数归因于特定Trait。 这允许通过 `{:x}` 格式化多个实际类型（如“i8”和“isize”）。 当前类型到Trait的映射是：</p><p>When requesting that an argument be formatted with a particular type, you
 are actually requesting that an argument ascribes to a particular trait.
-This allows multiple actual types to be formatted via <code>{:x}</code> (like <a href="https://doc.rust-lang.org/1.56.1/std/primitive.i8.html" title="i8"><code>i8</code></a> as
-well as <a href="https://doc.rust-lang.org/1.56.1/std/primitive.isize.html" title="isize"><code>isize</code></a>). The current mapping of types to traits is:</p>
+This allows multiple actual types to be formatted via <code>{:x}</code> (like <a href="../../core/primitive.i8.html" title="i8"><code>i8</code></a> as
+well as <a href="../../core/primitive.isize.html" title="isize"><code>isize</code></a>). The current mapping of types to traits is:</p>
 <ul>
-<li class="translate-text">没有⇒显示</li><li><em>nothing</em> ⇒ <a href="trait.Display.html" title="Display"><code>Display</code></a></li>
-<li class="translate-text">? ⇒ 调试</li><li><code>?</code> ⇒ <a href="trait.Debug.html" title="Debug"><code>Debug</code></a></li>
-<li class="translate-text">X？ ⇒ 使用小写十六进制整数进行调试</li><li><code>x?</code> ⇒ <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> with lower-case hexadecimal integers</li>
-<li class="translate-text">X？ ⇒ 使用大写十六进制整数进行调试</li><li><code>X?</code> ⇒ <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> with upper-case hexadecimal integers</li>
-<li class="translate-text">o ⇒ 八进制</li><li><code>o</code> ⇒ <a href="trait.Octal.html" title="Octal"><code>Octal</code></a></li>
-<li class="translate-text">x ⇒ 下十六进制</li><li><code>x</code> ⇒ <a href="trait.LowerHex.html" title="LowerHex"><code>LowerHex</code></a></li>
-<li class="translate-text">X ⇒ 上十六进制</li><li><code>X</code> ⇒ <a href="trait.UpperHex.html" title="UpperHex"><code>UpperHex</code></a></li>
-<li class="translate-text">p ⇒ 指针</li><li><code>p</code> ⇒ <a href="trait.Pointer.html" title="Pointer"><code>Pointer</code></a></li>
-<li class="translate-text">b ⇒ 二进制</li><li><code>b</code> ⇒ <a href="trait.Binary.html" title="Binary"><code>Binary</code></a></li>
-<li class="translate-text">e⇒LowerExp</li><li><code>e</code> ⇒ <a href="trait.LowerExp.html" title="LowerExp"><code>LowerExp</code></a></li>
-<li class="translate-text">E ⇒ UpperExp</li><li><code>E</code> ⇒ <a href="trait.UpperExp.html" title="UpperExp"><code>UpperExp</code></a></li>
+<li class="translate-text">没有⇒“显示”</li><li><em>nothing</em> ⇒ <a href="trait.Display.html" title="Display"><code>Display</code></a></li>
+<li class="translate-text">`?` ⇒ “调试”</li><li><code>?</code> ⇒ <a href="trait.Debug.html" title="Debug"><code>Debug</code></a></li>
+<li class="translate-text">`x?` ⇒ 带有小写十六进制整数的“调试”</li><li><code>x?</code> ⇒ <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> with lower-case hexadecimal integers</li>
+<li class="translate-text">`X?` ⇒ 带有大写十六进制整数的“调试”</li><li><code>X?</code> ⇒ <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> with upper-case hexadecimal integers</li>
+<li class="translate-text">`o` ⇒ “八进制”</li><li><code>o</code> ⇒ <a href="trait.Octal.html" title="Octal"><code>Octal</code></a></li>
+<li class="translate-text">`x` ⇒ “下十六进制”</li><li><code>x</code> ⇒ <a href="trait.LowerHex.html" title="LowerHex"><code>LowerHex</code></a></li>
+<li class="translate-text">`X` ⇒ “上十六进制”</li><li><code>X</code> ⇒ <a href="trait.UpperHex.html" title="UpperHex"><code>UpperHex</code></a></li>
+<li class="translate-text">`p` ⇒ “指针”</li><li><code>p</code> ⇒ <a href="trait.Pointer.html" title="Pointer"><code>Pointer</code></a></li>
+<li class="translate-text">`b` ⇒ “二进制”</li><li><code>b</code> ⇒ <a href="trait.Binary.html" title="Binary"><code>Binary</code></a></li>
+<li class="translate-text">`e` ⇒ "LowerExp"</li><li><code>e</code> ⇒ <a href="trait.LowerExp.html" title="LowerExp"><code>LowerExp</code></a></li>
+<li class="translate-text">`E` ⇒"UpperExp"</li><li><code>E</code> ⇒ <a href="trait.UpperExp.html" title="UpperExp"><code>UpperExp</code></a></li>
 </ul>
-<p class="translate-text">这意味着任何实现 fmt::Binary Trait的参数类型都可以用 {:b} 格式化。 标准库也为许多基本类型提供了这些Trait的实现。 如果未指定格式（如 {} 或 {:6}），则使用的格式Trait是 Display Trait。</p><p>What this means is that any type of argument which implements the
+<p class="translate-text">这意味着任何实现“fmt::Binary”Trait的参数类型都可以用`{:b}`格式化。 标准库也为许多基本类型提供了这些Trait的实现。 如果没有指定格式（如 `{}` 或 `{:6}`），则使用的格式Trait是“显示”Trait。</p><p>What this means is that any type of argument which implements the
 <a href="trait.Binary.html" title="Binary"><code>fmt::Binary</code></a> trait can then be formatted with <code>{:b}</code>. Implementations
 are provided for these traits for a number of primitive types by the
 standard library as well. If no format is specified (as in <code>{}</code> or <code>{:6}</code>),
@@ -257,17 +272,17 @@ then the format trait used is the <a href="trait.Display.html" title="Display"><
 <p class="translate-text">在为您自己的类型实现格式Trait时，您必须实现签名的方法：</p><p>When implementing a format trait for your own type, you will have to
 implement a method of the signature:</p>
 
-<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(dead_code)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Afmt%3B%0Astruct%20Foo%3B%20%2F%2F%20our%20custom%20type%0Aimpl%20fmt%3A%3ADisplay%20for%20Foo%20%7B%0Afn%20fmt(%26self%2C%20f%3A%20%26mut%20fmt%3A%3AFormatter)%20-%3E%20fmt%3A%3AResult%20%7B%0Awrite!(f%2C%20%22testing%2C%20testing%22)%0A%7D%20%7D%0A%7D&amp;edition=2018">Run</a></div>
-<p class="translate-text">您的类型将作为 self 引用传递，然后该函数应将输出发送到 f.buf 流。 正确遵守请求的格式参数取决于每个格式Trait实现。 这些参数的值将列在 Formatter 结构的字段中。 为了帮助解决这个问题，Formatter 结构还提供了一些辅助方法。</p><p>Your type will be passed as <code>self</code> by-reference, and then the function
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(dead_code)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Afmt%3B%0Astruct%20Foo%3B%20%2F%2F%20our%20custom%20type%0Aimpl%20fmt%3A%3ADisplay%20for%20Foo%20%7B%0Afn%20fmt(%26self%2C%20f%3A%20%26mut%20fmt%3A%3AFormatter)%20-%3E%20fmt%3A%3AResult%20%7B%0Awrite!(f%2C%20%22testing%2C%20testing%22)%0A%7D%20%7D%0A%7D&amp;edition=2018">Run</a></div>
+<p class="translate-text">您的类型将作为 `self` 通过引用传递，然后该函数应将输出发送到 `f.buf` 流。 正确遵守请求的格式参数取决于每个格式Trait实现。 这些参数的值将列在“Formatter”结构的字段中。 为了帮助解决这个问题，“Formatter”结构还提供了一些辅助方法。</p><p>Your type will be passed as <code>self</code> by-reference, and then the function
 should emit output into the <code>f.buf</code> stream. It is up to each format trait
 implementation to correctly adhere to the requested formatting parameters.
 The values of these parameters will be listed in the fields of the
 <a href="struct.Formatter.html" title="Formatter"><code>Formatter</code></a> struct. In order to help with this, the <a href="struct.Formatter.html" title="Formatter"><code>Formatter</code></a> struct also
 provides some helper methods.</p>
-<p class="translate-text">此外，此函数的返回值为 fmt::Result，它是 Result<(), std::fmt::Error> 的类型别名。 格式化实现应确保它们从 Formatter 传播错误（例如，在调用 write 时！）。 但是，它们不应该虚假地返回错误。 也就是说，如果传入的 Formatter 返回错误，格式化实现必须并且可能仅返回错误。 这是因为，与函数签名可能暗示的相反，字符串格式化是一个可靠的操作。 这个函数只返回一个结果，因为写入底层流可能会失败，并且它必须提供一种方法来将发生错误的事实传播到堆栈中。</p><p>Additionally, the return value of this function is <a href="type.Result.html"><code>fmt::Result</code></a> which is a
-type alias of <a href="../../core/result/enum.Result.html"><code>Result</code></a><code>&lt;(), </code><a href="struct.Error.html"><code>std::fmt::Error</code></a><code>&gt;</code>. Formatting implementations
+<p class="translate-text">此外，此函数的返回值为“fmt::Result”，它是 `Result<(), std::fmt::Error>` 的类型别名。 格式化实现应确保它们从“格式化程序”传播错误（例如，在调用“写入！”时）。 但是，它们不应该虚假地返回错误。 也就是说，如果传入的“格式化程序”返回错误，格式化实现必须并且可能仅返回错误。 这是因为，与函数签名可能暗示的相反，字符串格式化是一个可靠的操作。 这个函数只返回一个结果，因为写入底层流可能会失败，并且它必须提供一种方法来将发生错误的事实传播到堆栈中。</p><p>Additionally, the return value of this function is <a href="type.Result.html" title="fmt::Result"><code>fmt::Result</code></a> which is a
+type alias of <code><a href="../../core/result/enum.Result.html" title="std::result::Result">Result</a>&lt;(), <a href="struct.Error.html" title="fmt::Error">std::fmt::Error</a>&gt;</code>. Formatting implementations
 should ensure that they propagate errors from the <a href="struct.Formatter.html" title="Formatter"><code>Formatter</code></a> (e.g., when
-calling <a href="../../core/macro.write.html"><code>write!</code></a>). However, they should never return errors spuriously. That
+calling <a href="../../core/macro.write.html" title="write!"><code>write!</code></a>). However, they should never return errors spuriously. That
 is, a formatting implementation must and may only return an error if the
 passed-in <a href="struct.Formatter.html" title="Formatter"><code>Formatter</code></a> returns an error. This is because, contrary to what
 the function signature might suggest, string formatting is an infallible
@@ -286,7 +301,7 @@ like:</p>
 }
 
 <span class="kw">impl</span> <span class="ident">fmt::Display</span> <span class="kw">for</span> <span class="ident">Vector2D</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="comment">// The `f` value implements the `Write` trait, which is what the</span>
         <span class="comment">// write! macro is expecting. Note that this formatting ignores the</span>
         <span class="comment">// various flags provided to format strings.</span>
@@ -297,7 +312,7 @@ like:</p>
 <span class="comment">// Different traits allow different forms of output of a type. The meaning</span>
 <span class="comment">// of this format is to print the magnitude of a vector.</span>
 <span class="kw">impl</span> <span class="ident">fmt::Binary</span> <span class="kw">for</span> <span class="ident">Vector2D</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">fmt::Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">fmt::Result</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">f</span>: <span class="kw-2">&amp;mut</span> <span class="ident">fmt::Formatter</span>) -&gt; <span class="ident">fmt::Result</span> {
         <span class="kw">let</span> <span class="ident">magnitude</span> <span class="op">=</span> (<span class="self">self</span>.<span class="ident">x</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">x</span> <span class="op">+</span> <span class="self">self</span>.<span class="ident">y</span> <span class="op">*</span> <span class="self">self</span>.<span class="ident">y</span>) <span class="kw">as</span> <span class="ident">f64</span>;
         <span class="kw">let</span> <span class="ident">magnitude</span> <span class="op">=</span> <span class="ident">magnitude</span>.<span class="ident">sqrt</span>();
 
@@ -318,13 +333,13 @@ like:</p>
     <span class="macro">println!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">myvector</span>);     <span class="comment">// =&gt; &quot;Vector2D {x: 3, y:4}&quot;</span>
     <span class="macro">println!</span>(<span class="string">&quot;{:10.3b}&quot;</span>, <span class="ident">myvector</span>); <span class="comment">// =&gt; &quot;     5.000&quot;</span>
 }</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Ause%20std%3A%3Afmt%3B%0A%0A%23%5Bderive(Debug)%5D%0Astruct%20Vector2D%20%7B%0A%20%20%20%20x%3A%20isize%2C%0A%20%20%20%20y%3A%20isize%2C%0A%7D%0A%0Aimpl%20fmt%3A%3ADisplay%20for%20Vector2D%20%7B%0A%20%20%20%20fn%20fmt(%26self%2C%20f%3A%20%26mut%20fmt%3A%3AFormatter)%20-%3E%20fmt%3A%3AResult%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20The%20%60f%60%20value%20implements%20the%20%60Write%60%20trait%2C%20which%20is%20what%20the%0A%20%20%20%20%20%20%20%20%2F%2F%20write!%20macro%20is%20expecting.%20Note%20that%20this%20formatting%20ignores%20the%0A%20%20%20%20%20%20%20%20%2F%2F%20various%20flags%20provided%20to%20format%20strings.%0A%20%20%20%20%20%20%20%20write!(f%2C%20%22(%7B%7D%2C%20%7B%7D)%22%2C%20self.x%2C%20self.y)%0A%20%20%20%20%7D%0A%7D%0A%0A%2F%2F%20Different%20traits%20allow%20different%20forms%20of%20output%20of%20a%20type.%20The%20meaning%0A%2F%2F%20of%20this%20format%20is%20to%20print%20the%20magnitude%20of%20a%20vector.%0Aimpl%20fmt%3A%3ABinary%20for%20Vector2D%20%7B%0A%20%20%20%20fn%20fmt(%26self%2C%20f%3A%20%26mut%20fmt%3A%3AFormatter)%20-%3E%20fmt%3A%3AResult%20%7B%0A%20%20%20%20%20%20%20%20let%20magnitude%20%3D%20(self.x%20*%20self.x%20%2B%20self.y%20*%20self.y)%20as%20f64%3B%0A%20%20%20%20%20%20%20%20let%20magnitude%20%3D%20magnitude.sqrt()%3B%0A%0A%20%20%20%20%20%20%20%20%2F%2F%20Respect%20the%20formatting%20flags%20by%20using%20the%20helper%20method%0A%20%20%20%20%20%20%20%20%2F%2F%20%60pad_integral%60%20on%20the%20Formatter%20object.%20See%20the%20method%0A%20%20%20%20%20%20%20%20%2F%2F%20documentation%20for%20details%2C%20and%20the%20function%20%60pad%60%20can%20be%20used%0A%20%20%20%20%20%20%20%20%2F%2F%20to%20pad%20strings.%0A%20%20%20%20%20%20%20%20let%20decimals%20%3D%20f.precision().unwrap_or(3)%3B%0A%20%20%20%20%20%20%20%20let%20string%20%3D%20format!(%22%7B%3A.*%7D%22%2C%20decimals%2C%20magnitude)%3B%0A%20%20%20%20%20%20%20%20f.pad_integral(true%2C%20%22%22%2C%20%26string)%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20myvector%20%3D%20Vector2D%20%7B%20x%3A%203%2C%20y%3A%204%20%7D%3B%0A%0A%20%20%20%20println!(%22%7B%7D%22%2C%20myvector)%3B%20%20%20%20%20%20%20%2F%2F%20%3D%3E%20%22(3%2C%204)%22%0A%20%20%20%20println!(%22%7B%3A%3F%7D%22%2C%20myvector)%3B%20%20%20%20%20%2F%2F%20%3D%3E%20%22Vector2D%20%7Bx%3A%203%2C%20y%3A4%7D%22%0A%20%20%20%20println!(%22%7B%3A10.3b%7D%22%2C%20myvector)%3B%20%2F%2F%20%3D%3E%20%22%20%20%20%20%205.000%22%0A%7D&amp;edition=2018">Run</a></div>
-<h3 id="fmtdisplay-vs-fmtdebug" class="section-header"><a href="#fmtdisplay-vs-fmtdebug"><code>fmt::Display</code> vs <code>fmt::Debug</code></a></h3>
+<h4 id="fmtdisplay-vs-fmtdebug" class="section-header"><a href="#fmtdisplay-vs-fmtdebug"><code>fmt::Display</code> vs <code>fmt::Debug</code></a></h4>
 <p class="translate-text">这两个格式化Trait有不同的用途：</p><p>These two formatting traits have distinct purposes:</p>
 <ul>
-<li class="translate-text">fmt::Display 实现断言该类型始终可以忠实地表示为 UTF-8 字符串。 并非所有类型都实现 Display Trait。</li><li><a href="trait.Display.html" title="Display"><code>fmt::Display</code></a> implementations assert that the type can be faithfully
+<li class="translate-text">"fmt::Display" 实现断言该类型始终可以忠实地表示为 UTF-8 字符串。 并非所有类型都实现“显示”Trait。</li><li><a href="trait.Display.html" title="Display"><code>fmt::Display</code></a> implementations assert that the type can be faithfully
 represented as a UTF-8 string at all times. It is <strong>not</strong> expected that
 all types implement the <a href="trait.Display.html" title="Display"><code>Display</code></a> trait.</li>
-<li class="translate-text">应该为所有公共类型实现 fmt::Debug 实现。 输出通常会尽可能忠实地表示内部状态。 Debug trait 的目的是帮助调试 Rust 代码。 在大多数情况下，使用 #[derive(Debug)] 就足够了，建议使用。</li><li><a href="trait.Debug.html" title="Debug"><code>fmt::Debug</code></a> implementations should be implemented for <strong>all</strong> public types.
+<li class="translate-text">应该为所有公共类型实现“fmt::Debug”实现。 输出通常会尽可能忠实地表示内部状态。 “Debug” trait 的目的是方便调试 Rust 代码。 在大多数情况下，使用 `#[derive(Debug)]` 就足够了，建议使用。</li><li><a href="trait.Debug.html" title="Debug"><code>fmt::Debug</code></a> implementations should be implemented for <strong>all</strong> public types.
 Output will typically represent the internal state as faithfully as possible.
 The purpose of the <a href="trait.Debug.html" title="Debug"><code>Debug</code></a> trait is to facilitate debugging Rust code. In
 most cases, using <code>#[derive(Debug)]</code> is sufficient and recommended.</li>
@@ -334,8 +349,8 @@ most cases, using <code>#[derive(Debug)]</code> is sufficient and recommended.</
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{} {:?}&quot;</span>, <span class="number">3</span>, <span class="number">4</span>), <span class="string">&quot;3 4&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{} {:?}&quot;</span>, <span class="string">&#39;a&#39;</span>, <span class="string">&#39;b&#39;</span>), <span class="string">&quot;a &#39;b&#39;&quot;</span>);
 <span class="macro">assert_eq!</span>(<span class="macro">format!</span>(<span class="string">&quot;{} {:?}&quot;</span>, <span class="string">&quot;foo\n&quot;</span>, <span class="string">&quot;bar\n&quot;</span>), <span class="string">&quot;foo\n \&quot;bar\\n\&quot;&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aassert_eq!(format!(%22%7B%7D%20%7B%3A%3F%7D%22%2C%203%2C%204)%2C%20%223%204%22)%3B%0Aassert_eq!(format!(%22%7B%7D%20%7B%3A%3F%7D%22%2C%20'a'%2C%20'b')%2C%20%22a%20'b'%22)%3B%0Aassert_eq!(format!(%22%7B%7D%20%7B%3A%3F%7D%22%2C%20%22foo%5Cn%22%2C%20%22bar%5Cn%22)%2C%20%22foo%5Cn%20%5C%22bar%5C%5Cn%5C%22%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
-<h1 id="related-macros" class="section-header"><a href="#related-macros">Related macros</a></h1>
-<p class="translate-text">格式中有许多相关的宏！ 家庭。 目前实施的有：</p><p>There are a number of related macros in the <a href="../macro.format.html"><code>format!</code></a> family. The ones that
+<h2 id="related-macros" class="section-header"><a href="#related-macros">Related macros</a></h2>
+<p class="translate-text">“格式！”中有许多相关的宏。 家庭。 目前实施的有：</p><p>There are a number of related macros in the <a href="../macro.format.html" title="format!"><code>format!</code></a> family. The ones that
 are currently implemented are:</p>
 
 <div class='information'><div class='tooltip ignore'>ⓘ</div></div><div class="example-wrap"><pre class="rust rust-example-rendered ignore"><code><span class="macro">format!</span>      <span class="comment">// described above</span>
@@ -346,8 +361,8 @@ are currently implemented are:</p>
 <span class="macro">eprint!</span>      <span class="comment">// the format string is printed to the standard error</span>
 <span class="macro">eprintln!</span>    <span class="comment">// same as eprint but appends a newline</span>
 <span class="macro">format_args!</span> <span class="comment">// described below.</span></code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aformat!%20%20%20%20%20%20%2F%2F%20described%20above%0Awrite!%20%20%20%20%20%20%20%2F%2F%20first%20argument%20is%20a%20%26mut%20io%3A%3AWrite%2C%20the%20destination%0Awriteln!%20%20%20%20%20%2F%2F%20same%20as%20write%20but%20appends%20a%20newline%0Aprint!%20%20%20%20%20%20%20%2F%2F%20the%20format%20string%20is%20printed%20to%20the%20standard%20output%0Aprintln!%20%20%20%20%20%2F%2F%20same%20as%20print%20but%20appends%20a%20newline%0Aeprint!%20%20%20%20%20%20%2F%2F%20the%20format%20string%20is%20printed%20to%20the%20standard%20error%0Aeprintln!%20%20%20%20%2F%2F%20same%20as%20eprint%20but%20appends%20a%20newline%0Aformat_args!%20%2F%2F%20described%20below.%0A%7D&amp;edition=2018">Run</a></div>
-<h3 id="write" class="section-header"><a href="#write"><code>write!</code></a></h3>
-<p class="translate-text">这和写！ 是两个宏，用于将格式字符串发送到指定的流。 这用于防止格式字符串的中间分配，而是直接写入输出。 在底层，这个函数实际上是在调用 std::io::Write trait 上定义的 write_fmt 函数。 示例用法是：</p><p>This and <a href="../../core/macro.writeln.html"><code>writeln!</code></a> are two macros which are used to emit the format string
+<h4 id="write" class="section-header"><a href="#write"><code>write!</code></a></h4>
+<p class="translate-text">这和“writeln！” 是两个宏，用于将格式字符串发送到指定的流。 这用于防止格式字符串的中间分配，而是直接写入输出。 在底层，这个函数实际上是在调用定义在“std::io::Write”Trait上的“write_fmt”函数。 示例用法是：</p><p>This and <a href="../../core/macro.writeln.html" title="writeln!"><code>writeln!</code></a> are two macros which are used to emit the format string
 to a specified stream. This is used to prevent intermediate allocations of
 format strings and instead directly write the output. Under the hood, this
 function is actually invoking the <a href="../../std/io/trait.Write.html#method.write_fmt"><code>write_fmt</code></a> function defined on the
@@ -355,19 +370,19 @@ function is actually invoking the <a href="../../std/io/trait.Write.html#method.
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use</span> <span class="ident">std::io::Write</span>;
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">w</span> <span class="op">=</span> <span class="ident">Vec::new</span>();
-<span class="macro">write!</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">w</span>, <span class="string">&quot;Hello {}!&quot;</span>, <span class="string">&quot;world&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(unused_must_use)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Aio%3A%3AWrite%3B%0Alet%20mut%20w%20%3D%20Vec%3A%3Anew()%3B%0Awrite!(%26mut%20w%2C%20%22Hello%20%7B%7D!%22%2C%20%22world%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
-<h3 id="print" class="section-header"><a href="#print"><code>print!</code></a></h3>
-<p class="translate-text">这和println！ 将它们的输出发送到标准输出。 类似的写！ 宏，这些宏的目标是在打印输出时避免中间分配。 示例用法是：</p><p>This and <a href="../../std/macro.println.html"><code>println!</code></a> emit their output to stdout. Similarly to the <a href="../../core/macro.write.html"><code>write!</code></a>
+<span class="macro">write!</span>(<span class="kw-2">&amp;mut</span> <span class="ident">w</span>, <span class="string">&quot;Hello {}!&quot;</span>, <span class="string">&quot;world&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(unused_must_use)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Aio%3A%3AWrite%3B%0Alet%20mut%20w%20%3D%20Vec%3A%3Anew()%3B%0Awrite!(%26mut%20w%2C%20%22Hello%20%7B%7D!%22%2C%20%22world%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
+<h4 id="print" class="section-header"><a href="#print"><code>print!</code></a></h4>
+<p class="translate-text">这和“println！” 将它们的输出发送到标准输出。 类似于“写！” 宏，这些宏的目标是在打印输出时避免中间分配。 示例用法是：</p><p>This and <a href="../../std/macro.println.html" title="println!"><code>println!</code></a> emit their output to stdout. Similarly to the <a href="../../core/macro.write.html" title="write!"><code>write!</code></a>
 macro, the goal of these macros is to avoid intermediate allocations when
 printing output. Example usage is:</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="macro">print!</span>(<span class="string">&quot;Hello {}!&quot;</span>, <span class="string">&quot;world&quot;</span>);
 <span class="macro">println!</span>(<span class="string">&quot;I have a newline {}&quot;</span>, <span class="string">&quot;character at the end&quot;</span>);</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0Afn%20main()%20%7B%0Aprint!(%22Hello%20%7B%7D!%22%2C%20%22world%22)%3B%0Aprintln!(%22I%20have%20a%20newline%20%7B%7D%22%2C%20%22character%20at%20the%20end%22)%3B%0A%7D&amp;edition=2018">Run</a></div>
-<h3 id="eprint" class="section-header"><a href="#eprint"><code>eprint!</code></a></h3>
-<p class="translate-text">电子版！ 和电子版！ 宏与打印相同！ 和 println!，除了它们将它们的输出发送到标准错误。</p><p>The <a href="../../std/macro.eprint.html"><code>eprint!</code></a> and <a href="../../std/macro.eprintln.html"><code>eprintln!</code></a> macros are identical to
-<a href="../../std/macro.print.html"><code>print!</code></a> and <a href="../../std/macro.println.html"><code>println!</code></a>, respectively, except they emit their
+<h4 id="eprint" class="section-header"><a href="#eprint"><code>eprint!</code></a></h4>
+<p class="translate-text">“电子版！” 和“eprintln！” 宏等同于“打印！” 和“println!”，除了它们将输出发送到标准错误。</p><p>The <a href="../../std/macro.eprint.html" title="eprint!"><code>eprint!</code></a> and <a href="../../std/macro.eprintln.html" title="eprintln!"><code>eprintln!</code></a> macros are identical to
+<a href="../../std/macro.print.html" title="print!"><code>print!</code></a> and <a href="../../std/macro.println.html" title="println!"><code>println!</code></a>, respectively, except they emit their
 output to stderr.</p>
-<h3 id="format_args" class="section-header"><a href="#format_args"><code>format_args!</code></a></h3>
+<h4 id="format_args" class="section-header"><a href="#format_args"><code>format_args!</code></a></h4>
 <p class="translate-text">这是一个奇怪的宏，用于安全地传递描述格式字符串的不透明对象。 该对象不需要任何堆分配来创建，它只引用堆栈上的信息。 在引擎盖下，所有相关的宏都是以此来实现的。 首先，一些示例用法是：</p><p>This is a curious macro used to safely pass around
 an opaque object describing the format string. This object
 does not require any heap allocations to create, and it only
@@ -379,54 +394,53 @@ off, some example usage is:</p>
 <span class="kw">use</span> <span class="ident">std::io</span>::{<span class="self">self</span>, <span class="ident">Write</span>};
 
 <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">some_writer</span> <span class="op">=</span> <span class="ident">io::stdout</span>();
-<span class="macro">write!</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">some_writer</span>, <span class="string">&quot;{}&quot;</span>, <span class="macro">format_args!</span>(<span class="string">&quot;print with a {}&quot;</span>, <span class="string">&quot;macro&quot;</span>));
+<span class="macro">write!</span>(<span class="kw-2">&amp;mut</span> <span class="ident">some_writer</span>, <span class="string">&quot;{}&quot;</span>, <span class="macro">format_args!</span>(<span class="string">&quot;print with a {}&quot;</span>, <span class="string">&quot;macro&quot;</span>));
 
 <span class="kw">fn</span> <span class="ident">my_fmt_fn</span>(<span class="ident">args</span>: <span class="ident">fmt::Arguments</span>) {
-    <span class="macro">write!</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">io::stdout</span>(), <span class="string">&quot;{}&quot;</span>, <span class="ident">args</span>);
+    <span class="macro">write!</span>(<span class="kw-2">&amp;mut</span> <span class="ident">io::stdout</span>(), <span class="string">&quot;{}&quot;</span>, <span class="ident">args</span>);
 }
 <span class="ident">my_fmt_fn</span>(<span class="macro">format_args!</span>(<span class="string">&quot;, or a {} too&quot;</span>, <span class="string">&quot;function&quot;</span>));</code></pre><a class="test-arrow" target="_blank" href="https://play.rust-lang.org/?code=%23!%5Ballow(unused)%5D%0A%23!%5Ballow(unused_must_use)%5D%0Afn%20main()%20%7B%0Ause%20std%3A%3Afmt%3B%0Ause%20std%3A%3Aio%3A%3A%7Bself%2C%20Write%7D%3B%0A%0Alet%20mut%20some_writer%20%3D%20io%3A%3Astdout()%3B%0Awrite!(%26mut%20some_writer%2C%20%22%7B%7D%22%2C%20format_args!(%22print%20with%20a%20%7B%7D%22%2C%20%22macro%22))%3B%0A%0Afn%20my_fmt_fn(args%3A%20fmt%3A%3AArguments)%20%7B%0A%20%20%20%20write!(%26mut%20io%3A%3Astdout()%2C%20%22%7B%7D%22%2C%20args)%3B%0A%7D%0Amy_fmt_fn(format_args!(%22%2C%20or%20a%20%7B%7D%20too%22%2C%20%22function%22))%3B%0A%7D&amp;edition=2018">Run</a></div>
-<p class="translate-text">format_args 的结果！ 宏是 fmt::Arguments 类型的值。 然后可以将此结构传递给该模块内的 write 和 format 函数，以处理格式字符串。 该宏的目标是在处理格式化字符串时进一步防止中间分配。</p><p>The result of the <a href="../../core/macro.format_args.html"><code>format_args!</code></a> macro is a value of type <a href="struct.Arguments.html"><code>fmt::Arguments</code></a>.
-This structure can then be passed to the <a href="../../core/macro.write.html"><code>write</code></a> and <a href="../macro.format.html"><code>format</code></a> functions
+<p class="translate-text">“format_args！”的结果 宏是“fmt::Arguments”类型的值。 然后可以将此结构传递给该模块内的“write”和“format”函数，以处理格式字符串。 该宏的目标是在处理格式化字符串时进一步防止中间分配。</p><p>The result of the <a href="../../core/macro.format_args.html" title="format_args!"><code>format_args!</code></a> macro is a value of type <a href="struct.Arguments.html" title="fmt::Arguments"><code>fmt::Arguments</code></a>.
+This structure can then be passed to the <a href="fn.write.html" title="fmt::write"><code>write</code></a> and <a href="fn.format.html" title="fmt::format"><code>format</code></a> functions
 inside this module in order to process the format string.
 The goal of this macro is to even further prevent intermediate allocations
 when dealing with formatting strings.</p>
 <p class="translate-text">例如，一个日志库可以使用标准的格式化语法，但它会在内部传递这个结构，直到它确定了输出应该去哪里。</p><p>For example, a logging library could use the standard formatting syntax, but
 it would internally pass around this structure until it has been determined
 where output should go to.</p>
-</div></details><h2 id="macros" class="section-header"><a href="#macros">Macros</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="macro" href="macro.Debug.html" title="alloc::fmt::Debug macro">Debug</a></div><div class="item-right docblock-short"><p>Derive macro generating an impl of the trait <code>Debug</code>.</p>
-</div></div><h2 id="structs" class="section-header"><a href="#structs">Structs</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="struct" href="struct.Arguments.html" title="alloc::fmt::Arguments struct">Arguments</a></div><div class="item-right docblock-short"><p>This structure represents a safely precompiled version of a format string
+</div></details><h2 id="macros" class="small-section-header"><a href="#macros">Macros</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="macro" href="macro.Debug.html" title="alloc::fmt::Debug macro">Debug</a></div><div class="item-right docblock-short"><p>Derive macro generating an impl of the trait <code>Debug</code>.</p>
+</div></div></div><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Arguments.html" title="alloc::fmt::Arguments struct">Arguments</a></div><div class="item-right docblock-short"><p>This structure represents a safely precompiled version of a format string
 and its arguments. This cannot be generated at runtime because it cannot
 safely be done, so no constructors are given and the fields are private
 to prevent modification.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.DebugList.html" title="alloc::fmt::DebugList struct">DebugList</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.DebugMap.html" title="alloc::fmt::DebugMap struct">DebugMap</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.DebugSet.html" title="alloc::fmt::DebugSet struct">DebugSet</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.DebugStruct.html" title="alloc::fmt::DebugStruct struct">DebugStruct</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.DebugTuple.html" title="alloc::fmt::DebugTuple struct">DebugTuple</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.Error.html" title="alloc::fmt::Error struct">Error</a></div><div class="item-right docblock-short"><p>The error type which is returned from formatting a message into a stream.</p>
-</div><div class="item-left module-item"><a class="struct" href="struct.Formatter.html" title="alloc::fmt::Formatter struct">Formatter</a></div><div class="item-right docblock-short"><p>Configuration for formatting.</p>
-</div></div><h2 id="enums" class="section-header"><a href="#enums">Enums</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="enum" href="enum.Alignment.html" title="alloc::fmt::Alignment enum">Alignment</a></div><div class="item-right docblock-short"><p>Possible alignments returned by <code>Formatter::align</code></p>
-</div></div><h2 id="traits" class="section-header"><a href="#traits">Traits</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="trait" href="trait.Binary.html" title="alloc::fmt::Binary trait">Binary</a></div><div class="item-right docblock-short"><p><code>b</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.Debug.html" title="alloc::fmt::Debug trait">Debug</a></div><div class="item-right docblock-short"><p><code>?</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.Display.html" title="alloc::fmt::Display trait">Display</a></div><div class="item-right docblock-short"><p>Format trait for an empty format, <code>{}</code>.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.LowerExp.html" title="alloc::fmt::LowerExp trait">LowerExp</a></div><div class="item-right docblock-short"><p><code>e</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.LowerHex.html" title="alloc::fmt::LowerHex trait">LowerHex</a></div><div class="item-right docblock-short"><p><code>x</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.Octal.html" title="alloc::fmt::Octal trait">Octal</a></div><div class="item-right docblock-short"><p><code>o</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.Pointer.html" title="alloc::fmt::Pointer trait">Pointer</a></div><div class="item-right docblock-short"><p><code>p</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.UpperExp.html" title="alloc::fmt::UpperExp trait">UpperExp</a></div><div class="item-right docblock-short"><p><code>E</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.UpperHex.html" title="alloc::fmt::UpperHex trait">UpperHex</a></div><div class="item-right docblock-short"><p><code>X</code> formatting.</p>
-</div><div class="item-left module-item"><a class="trait" href="trait.Write.html" title="alloc::fmt::Write trait">Write</a></div><div class="item-right docblock-short"><p>A trait for writing or formatting into Unicode-accepting buffers or streams.</p>
-</div></div><h2 id="functions" class="section-header"><a href="#functions">Functions</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="fn" href="fn.format.html" title="alloc::fmt::format fn">format</a></div><div class="item-right docblock-short"><p>The <code>format</code> function takes an <a href="struct.Arguments.html" title="Arguments"><code>Arguments</code></a> struct and returns the resulting
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.DebugList.html" title="alloc::fmt::DebugList struct">DebugList</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.DebugMap.html" title="alloc::fmt::DebugMap struct">DebugMap</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.DebugSet.html" title="alloc::fmt::DebugSet struct">DebugSet</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.DebugStruct.html" title="alloc::fmt::DebugStruct struct">DebugStruct</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.DebugTuple.html" title="alloc::fmt::DebugTuple struct">DebugTuple</a></div><div class="item-right docblock-short"><p>A struct to help with <a href="trait.Debug.html"><code>fmt::Debug</code></a> implementations.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Error.html" title="alloc::fmt::Error struct">Error</a></div><div class="item-right docblock-short"><p>The error type which is returned from formatting a message into a stream.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="struct" href="struct.Formatter.html" title="alloc::fmt::Formatter struct">Formatter</a></div><div class="item-right docblock-short"><p>Configuration for formatting.</p>
+</div></div></div><h2 id="enums" class="small-section-header"><a href="#enums">Enums</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="enum" href="enum.Alignment.html" title="alloc::fmt::Alignment enum">Alignment</a></div><div class="item-right docblock-short"><p>Possible alignments returned by <code>Formatter::align</code></p>
+</div></div></div><h2 id="traits" class="small-section-header"><a href="#traits">Traits</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Binary.html" title="alloc::fmt::Binary trait">Binary</a></div><div class="item-right docblock-short"><p><code>b</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Debug.html" title="alloc::fmt::Debug trait">Debug</a></div><div class="item-right docblock-short"><p><code>?</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Display.html" title="alloc::fmt::Display trait">Display</a></div><div class="item-right docblock-short"><p>Format trait for an empty format, <code>{}</code>.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.LowerExp.html" title="alloc::fmt::LowerExp trait">LowerExp</a></div><div class="item-right docblock-short"><p><code>e</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.LowerHex.html" title="alloc::fmt::LowerHex trait">LowerHex</a></div><div class="item-right docblock-short"><p><code>x</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Octal.html" title="alloc::fmt::Octal trait">Octal</a></div><div class="item-right docblock-short"><p><code>o</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Pointer.html" title="alloc::fmt::Pointer trait">Pointer</a></div><div class="item-right docblock-short"><p><code>p</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.UpperExp.html" title="alloc::fmt::UpperExp trait">UpperExp</a></div><div class="item-right docblock-short"><p><code>E</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.UpperHex.html" title="alloc::fmt::UpperHex trait">UpperHex</a></div><div class="item-right docblock-short"><p><code>X</code> formatting.</p>
+</div></div><div class="item-row"><div class="item-left module-item"><a class="trait" href="trait.Write.html" title="alloc::fmt::Write trait">Write</a></div><div class="item-right docblock-short"><p>A trait for writing or formatting into Unicode-accepting buffers or streams.</p>
+</div></div></div><h2 id="functions" class="small-section-header"><a href="#functions">Functions</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.format.html" title="alloc::fmt::format fn">format</a></div><div class="item-right docblock-short"><p>The <code>format</code> function takes an <a href="struct.Arguments.html" title="Arguments"><code>Arguments</code></a> struct and returns the resulting
 formatted string.</p>
-</div><div class="item-left module-item"><a class="fn" href="fn.write.html" title="alloc::fmt::write fn">write</a></div><div class="item-right docblock-short"><p>The <code>write</code> function takes an output stream, and an <code>Arguments</code> struct
+</div></div><div class="item-row"><div class="item-left module-item"><a class="fn" href="fn.write.html" title="alloc::fmt::write fn">write</a></div><div class="item-right docblock-short"><p>The <code>write</code> function takes an output stream, and an <code>Arguments</code> struct
 that can be precompiled with the <code>format_args!</code> macro.</p>
-</div></div><h2 id="types" class="section-header"><a href="#types">Type Definitions</a></h2>
-<div class="item-table"><div class="item-left module-item"><a class="type" href="type.Result.html" title="alloc::fmt::Result type">Result</a></div><div class="item-right docblock-short"><p>The type returned by formatter methods.</p>
-</div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="alloc" data-search-index-js="../../search-index1.56.1.js" data-search-js="../../search1.56.1.js"></div>
-    <script src="../../main1.56.1.js"></script>
+</div></div></div><h2 id="types" class="small-section-header"><a href="#types">Type Definitions</a></h2>
+<div class="item-table"><div class="item-row"><div class="item-left module-item"><a class="type" href="type.Result.html" title="alloc::fmt::Result type">Result</a></div><div class="item-right docblock-short"><p>The type returned by formatter methods.</p>
+</div></div></div></section><section id="search" class="content hidden"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="alloc" data-search-index-js="../../search-index1.58.0.js" data-search-js="../../search1.58.0.js"></div>
 </body></html>
